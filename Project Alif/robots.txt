@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you.html
+
+Sitemap: https://alif-growth.netlify.app/sitemap.xml
+Host: alif-growth.netlify.app
