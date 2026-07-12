@@ -84,7 +84,7 @@
 
     const updateWhatsAppLink = () => {
       const message = buildWhatsAppMessage();
-      whatsappLeadLink.href = `https://wa.me/919908597337?text=${encodeURIComponent(message)}`;
+      whatsappLeadLink.href = `https://wa.me/917207071874?text=${encodeURIComponent(message)}`;
     };
 
     ['input', 'change'].forEach((eventName) => {
@@ -177,7 +177,7 @@
         'Please share the next steps.'
       ].join('\n');
 
-      const whatsappURL = `https://wa.me/919908597337?text=${encodeURIComponent(message)}`;
+      const whatsappURL = `https://wa.me/917207071874?text=${encodeURIComponent(message)}`;
       track('generate_lead', {
         event_category: 'whatsapp',
         event_label: 'audit_request'
