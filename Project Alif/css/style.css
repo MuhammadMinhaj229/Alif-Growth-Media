@@ -1096,4 +1096,198 @@ body.wa-modal-open {
 
   .btn,
   .card { transition: none; }
+
+  .collab-marquee-track {
+    animation: none !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
+
+/* ============================================================
+   Local Brand Collaborations Section Styles
+   ============================================================ */
+
+.collab-story {
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.collab-lead {
+  font-size: 1.15rem;
+  color: var(--heading-deep);
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.collab-narrative {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.collab-narrative p {
+  margin-bottom: 12px;
+}
+
+.collab-marquee-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding: 32px 0;
+  margin: 40px 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* Linear infinite marquee track scrolling Left-to-Right */
+.collab-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  /* Correct: starts at 0 and scrolls left to -50% then loops */
+  animation: marquee-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.collab-marquee-wrapper:hover .collab-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Each logo item — frosted pill container */
+.collab-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 14px 28px;
+  margin: 0 20px;
+  height: 96px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: box-shadow 220ms ease, transform 220ms ease;
+}
+
+.collab-marquee-item img {
+  height: 68px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 220ms ease;
+  /* No max-width — let the image breathe at its natural ratio */
+}
+
+.collab-marquee-item:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+  transform: translateY(-3px);
+}
+
+.collab-marquee-item:hover img {
+  transform: scale(1.06);
+}
+
+/* Featured cards section */
+.collab-card {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1), border-color 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.collab-card-logo {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0,0,0,0.07);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+  width: 100%;
+}
+
+.collab-card-logo img {
+  height: 100%;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+  transition: transform 220ms ease;
+}
+
+.collab-card:hover .collab-card-logo img {
+  transform: scale(1.04);
+}
+
+.collab-card h3 {
+  font-family: Sora, sans-serif;
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--heading-deep);
+}
+
+.collab-industry {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--brand-teal);
+  margin-top: -4px;
+}
+
+.collab-desc {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.collab-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 20px 42px rgba(13, 124, 106, 0.12), var(--shadow);
+  border-color: var(--accent) !important;
+}
+
+.collab-card:hover .collab-card-logo img {
+  opacity: 1;
+}
+
+/* Keyboard Accessibility Focus styles */
+.collab-marquee-item:focus,
+.collab-card:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .collab-marquee-item {
+    padding: 0 30px;
+    height: 44px;
+  }
+}
+
