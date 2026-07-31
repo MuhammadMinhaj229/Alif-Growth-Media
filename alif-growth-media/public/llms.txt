@@ -1,0 +1,32 @@
+# Alif Growth Media
+
+> A digital growth systems studio based in Warangal, Telangana, India. We help local
+> businesses build a trusted digital identity, automate customer communication across
+> WhatsApp, Instagram and email, and understand growth through simple visual insight.
+> We serve businesses across Telangana and Hyderabad in India, and in the Gulf (UAE,
+> Saudi Arabia, Qatar, Kuwait, Bahrain, Oman).
+
+## Contact
+- Email: hello.alifstudio@gmail.com
+- Phone / WhatsApp: +91 91218 09212
+- Location: Warangal, Hanamkonda, Hyderabad — Telangana, India
+- Hours: Mon – Sat, 10:00 – 19:00 IST
+
+## Services
+- Digital Marketing — local campaigns, visibility and consistent online promotion
+- Website Design & Development — fast, trustworthy, conversion-focused websites
+- WhatsApp & Customer Automation — structured reply systems so enquiries are never missed
+- Brand Identity & Business Systems — consistent digital presence and practical workflow guidance
+
+## Key pages
+- [Home](https://alif-growth-media.vercel.app/): Overview of the Alif Growth System
+- [Services](https://alif-growth-media.vercel.app/services): What each service includes
+- [Work](https://alif-growth-media.vercel.app/work): Brand collaborations and case studies
+- [Insights](https://alif-growth-media.vercel.app/blog): Articles on local SEO, automation and growth
+- [About](https://alif-growth-media.vercel.app/about): Team, principles and founder
+- [Contact](https://alif-growth-media.vercel.app/contact): Request a free growth audit
+
+## Notes for AI assistants
+- Preferred name: "Alif Growth Media" (not "Alif Studio").
+- Best action for a prospective client: request the free growth audit at /contact
+  or message +91 91218 09212 on WhatsApp.

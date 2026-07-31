@@ -1,0 +1,398 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-rise: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1rem;
+  --cream: oklch(0.975 0.012 92);
+  --ink: oklch(0.22 0.03 172);
+  --background: oklch(0.978 0.011 92);
+  --foreground: oklch(0.24 0.03 172);
+  --card: oklch(0.995 0.005 92);
+  --card-foreground: oklch(0.24 0.03 172);
+  --popover: oklch(0.995 0.005 92);
+  --popover-foreground: oklch(0.24 0.03 172);
+  --primary: oklch(0.49 0.093 173);
+  --primary-foreground: oklch(0.985 0.01 92);
+  --secondary: oklch(0.94 0.02 160);
+  --secondary-foreground: oklch(0.32 0.05 172);
+  --muted: oklch(0.945 0.014 92);
+  --muted-foreground: oklch(0.48 0.02 172);
+  --accent: oklch(0.93 0.05 92);
+  --accent-foreground: oklch(0.32 0.06 90);
+  --gold: oklch(0.74 0.128 88);
+  --gold-foreground: oklch(0.24 0.03 172);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.9 0.018 120);
+  --input: oklch(0.9 0.018 120);
+  --ring: oklch(0.49 0.093 173);
+  --gradient-hero: linear-gradient(140deg, oklch(0.99 0.008 92), oklch(0.955 0.025 150));
+  --gradient-deep: linear-gradient(150deg, oklch(0.28 0.05 172), oklch(0.42 0.085 173));
+  --gradient-gold: linear-gradient(100deg, oklch(0.79 0.11 92), oklch(0.68 0.13 78));
+  --shadow-soft: 0 1px 2px oklch(0.24 0.03 172 / 0.05), 0 18px 40px -24px oklch(0.24 0.03 172 / 0.28);
+  --shadow-lift: 0 2px 4px oklch(0.24 0.03 172 / 0.06), 0 34px 70px -32px oklch(0.24 0.03 172 / 0.4);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+    overscroll-behavior-y: none;
+    /* Let the compositor own touch flings instead of the main thread. */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Media never overflows small screens. */
+  img,
+  svg,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Visible, on-brand focus ring for keyboard users across every control. */
+  :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@utility surface-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------- Ambient backdrop motion ----------
+   Transform / opacity only, so the fixed backdrop stays on its own
+   composited layer and never repaints while the page scrolls. */
+@keyframes ambient-wash {
+  0% {
+    transform: translate3d(-1.5%, -1%, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(2%, 1.5%, 0) scale(1.14);
+  }
+}
+
+@keyframes ambient-silk-a {
+  0% {
+    transform: translate3d(-4%, -2%, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(3%, 3%, 0) scale(1.18);
+  }
+}
+
+@keyframes ambient-silk-b {
+  0% {
+    transform: translate3d(3%, 2%, 0) scale(1.14);
+  }
+  100% {
+    transform: translate3d(-3%, -3%, 0) scale(1.02);
+  }
+}
+
+@keyframes ambient-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+/* Wide specular band travelling across the "fabric", with a long
+   quiet tail so the shine reads as occasional rather than looping. */
+@keyframes ambient-sheen {
+  0% {
+    transform: translate3d(-120%, 0, 0) rotate(14deg);
+  }
+  38%,
+  100% {
+    transform: translate3d(120%, 0, 0) rotate(14deg);
+  }
+}
+
+@keyframes ambient-sheen-alt {
+  0% {
+    transform: translate3d(115%, 0, 0) rotate(-9deg);
+  }
+  46%,
+  100% {
+    transform: translate3d(-115%, 0, 0) rotate(-9deg);
+  }
+}
+
+.ambient-wash {
+  animation: ambient-wash 34s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.ambient-silk-a {
+  animation:
+    ambient-silk-a 44s ease-in-out infinite alternate,
+    ambient-breathe 19s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.ambient-silk-b {
+  animation:
+    ambient-silk-b 57s ease-in-out infinite alternate,
+    ambient-breathe 26s ease-in-out infinite reverse;
+  will-change: transform, opacity;
+}
+
+.ambient-sheen {
+  animation: ambient-sheen 34s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  will-change: transform;
+}
+
+.ambient-sheen-alt {
+  animation: ambient-sheen-alt 52s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  will-change: transform;
+}
+
+@media (max-width: 640px) {
+  .ambient-wash {
+    animation-duration: 48s;
+  }
+
+  .ambient-silk-a,
+  .ambient-silk-b {
+    animation-duration: 70s, 30s;
+  }
+
+  .ambient-sheen-alt {
+    display: none;
+  }
+}
+
+/* Touch devices: keep the ambient art, drop the continuous compositing work.
+   Large animated gradient layers are the main source of fling-scroll jank on
+   phones, so they render once and stay put. */
+@media (pointer: coarse) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .ambient-wash,
+  .ambient-silk-a,
+  .ambient-silk-b,
+  .ambient-sheen,
+  .ambient-sheen-alt {
+    animation: none !important;
+    will-change: auto !important;
+  }
+
+  .ambient-sheen,
+  .ambient-sheen-alt {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-wash,
+  .ambient-silk-a,
+  .ambient-silk-b,
+  .ambient-sheen,
+  .ambient-sheen-alt {
+    animation: none !important;
+  }
+}
+
+@utility gradient-deep {
+  background-image: var(--gradient-deep);
+}
+
+@utility gradient-gold-text {
+  background-image: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
