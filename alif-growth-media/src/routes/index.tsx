@@ -21,9 +21,9 @@ import {
 } from "@/components/motion/primitives";
 import { collaborations, company, pillars, problems, results, services, steps } from "@/content/site";
 
-const title = "Alif Growth Media | Digital Marketing, Websites & Automation";
+const title = "Alif Growth Media | Custom Business Software, Visual CMS & Operating Systems";
 const description =
-  "Alif Growth Media helps local businesses in Telangana, Hyderabad and the Gulf grow with digital marketing, websites, WhatsApp automation and clear growth systems.";
+  "Alif Growth Media acts as the dedicated IT team and fractional CTO for local businesses—engineering scalable websites with live visual editors, custom WhatsApp CRMs, digital invoicing, and unified mobile BI dashboards.";
 const canonical = "https://alif-growth-media.vercel.app/";
 
 export const Route = createFileRoute("/")({
@@ -67,7 +67,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const headline = "Helping local businesses grow with".split(" ");
+  const headline = "Empowering local businesses with custom".split(" ");
   return (
     <SiteLayout>
       {/* Hero */}
@@ -80,7 +80,7 @@ function Index() {
               transition={{ duration: 0.5, ease: EASE }}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card/85 px-3.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary sm:px-4 sm:text-xs"
             >
-              Telangana · Hyderabad · Gulf
+              Your Dedicated Embedded IT Partner · Telangana & Gulf
             </motion.span>
             <h1 className="mt-5 text-[clamp(2.1rem,7.6vw,3.75rem)] font-semibold leading-[1.06] sm:mt-6">
               {headline.map((word, i) => (
@@ -100,7 +100,7 @@ function Index() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 + headline.length * 0.06, ease: EASE }}
               >
-                smart digital systems.
+                software & operating tools.
               </motion.span>
             </h1>
             <motion.p
@@ -109,8 +109,7 @@ function Index() {
               transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
               className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg"
             >
-              We build your trusted digital identity, keep customers answered with automated communication, and show
-              your growth through simple visual insight — for businesses in India and the Gulf.
+              We engineer scalable websites with live visual admin editors, custom WhatsApp CRMs, tailored invoicing, and live inventory—all controlled through a unified mobile dashboard. Never depend on external developers again.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -123,7 +122,7 @@ function Index() {
                   to="/contact"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] sm:w-auto"
                 >
-                  Get a Free Growth Audit <ArrowRight className="h-4 w-4" />
+                  Schedule a Tech Architecture Audit <ArrowRight className="h-4 w-4" />
                 </Link>
               </HoverLift>
               <HoverLift className="w-full sm:w-auto">
@@ -131,7 +130,7 @@ function Index() {
                   to="/services"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card/85 px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-muted sm:w-auto"
                 >
-                  Explore our services
+                  Explore Software Suite
                 </Link>
               </HoverLift>
             </motion.div>
@@ -141,7 +140,7 @@ function Index() {
               transition={{ duration: 0.6, delay: 0.78 }}
               className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground"
             >
-              {["Clear process", "Local business focused", "India & GCC ready"].map((p) => (
+              {["Live Visual CMS", "Custom WhatsApp CRM", "Mobile BI Dashboard", "Full Client Ownership"].map((p) => (
                 <span key={p} className="inline-flex items-center gap-2">
                   <Check className="h-4 w-4 shrink-0 text-primary" /> {p}
                 </span>
@@ -176,9 +175,9 @@ function Index() {
                 What changes for your business
               </h2>
               <ul className="mt-3 space-y-1.5 text-[0.82rem] leading-relaxed text-muted-foreground sm:space-y-2 sm:text-sm">
-                <li>Your business looks clear, modern and trustworthy online.</li>
-                <li>Customers get faster replies on WhatsApp, Instagram and email.</li>
-                <li>You see progress without technical confusion.</li>
+                <li>Instant visual admin editor to update text, photos & prices without coding.</li>
+                <li>Custom WhatsApp CRM captures and auto-replies to every inbound customer lead.</li>
+                <li>One unified mobile dashboard reveals daily cash collections, web visits & stock.</li>
               </ul>
             </motion.div>
           </motion.div>
@@ -192,7 +191,7 @@ function Index() {
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 md:flex-row md:justify-between">
           <Reveal>
             <p className="text-center text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground sm:text-xs md:text-left">
-              Trusted by growing brands in Telangana
+              Trusted software & platform partners in Telangana & Gulf
             </p>
           </Reveal>
           <ScrollDrift distance={34}>
@@ -225,8 +224,8 @@ function Index() {
 
       <Section
         eyebrow="The reality"
-        title="If digital growth feels heavy, you are not alone."
-        intro="Most local business owners are focused on daily operations. It is normal to feel stretched when digital tasks pile up."
+        title="Why traditional web agencies and AI builders leave local owners stuck"
+        intro="AI can generate a basic website in minutes, but you cannot edit it without coding again. Meanwhile, enterprise software is too bloated and expensive for local retail, clinics, and showrooms."
       >
         <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {problems.map((p) => (
@@ -243,14 +242,13 @@ function Index() {
           <div className="mx-auto w-full max-w-6xl">
             <Reveal className="max-w-2xl">
               <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-gold sm:text-xs">
-                Our framework
+                Our technology framework
               </span>
               <h2 className="mt-3 text-balance text-[clamp(1.65rem,5.2vw,2.6rem)] font-semibold leading-[1.15]">
-                Three pillars that turn digital effort into growth
+                Three pillars that turn your business into an automated machine
               </h2>
               <p className="mt-4 text-pretty text-[0.975rem] leading-relaxed text-primary-foreground/75 sm:text-base">
-                Practical foundations that make daily digital work compound into steady business growth for service
-                brands across Telangana and the Gulf.
+                We engineer scalable web architecture, custom WhatsApp CRMs, and mobile executive dashboards so you can run your business smoothly without technical frustration.
               </p>
             </Reveal>
             <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
@@ -269,9 +267,9 @@ function Index() {
       </div>
 
       <Section
-        eyebrow="Services"
-        title="One unified solution: the Alif Growth System"
-        intro="Everything is connected, so you never need separate agencies for marketing, websites, automation and digital guidance."
+        eyebrow="Software Suite"
+        title="Custom software & tools built for your business identity"
+        intro="Everything is integrated into one operating ecosystem, powered by Alif Growth Media so you never juggle separate freelance developers or incompatible apps."
         tone="muted"
       >
         <Stagger className="mt-10 grid gap-4 sm:gap-5 md:grid-cols-2">
@@ -323,19 +321,19 @@ function Index() {
                 <div className="surface-card h-full p-6 sm:p-7">
                   <h3 className="text-lg font-semibold text-muted-foreground">Before</h3>
                   <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                    <li>Manual replies across many chat channels</li>
-                    <li>Low visibility to nearby customers</li>
-                    <li>Inconsistent branding and trust signals</li>
+                    <li>Static website requiring developers or coding just to change prices or photos</li>
+                    <li>Missed WhatsApp leads and forgotten follow-ups during busy workdays</li>
+                    <li>Zero daily visibility into cash collected, web visitors, or stock levels</li>
                   </ul>
                 </div>
               </ScrollScene>
               <ScrollScene from={0.28} to={0.56} y={[64, 0]} scale={[0.94, 1]} delay={0.12}>
                 <div className="surface-card h-full border-primary/25 bg-secondary/40 p-6 sm:p-7">
-                  <h3 className="text-lg font-semibold text-primary">After</h3>
+                  <h3 className="text-lg font-semibold text-primary">After (Powered by Alif)</h3>
                   <ul className="mt-4 space-y-3 text-sm text-foreground/80">
-                    <li>Structured and professional digital presence</li>
-                    <li>Automated response flow for common enquiries</li>
-                    <li>Steady customer enquiries and stronger trust</li>
+                    <li>Embedded Visual Admin: update your site and catalog in seconds without code</li>
+                    <li>Automated WhatsApp CRM routing and instant digital brochure replies</li>
+                    <li>Single Mobile BI Dashboard: live cashflow, customer histories & lead tracking</li>
                   </ul>
                 </div>
               </ScrollScene>

@@ -57,8 +57,8 @@ function AboutPage() {
     <SiteLayout>
       <PageHero
         eyebrow="About us"
-        title="Alif — the first stroke of a business that grows"
-        intro="Alif Growth Media is a digital growth systems studio in Warangal, Telangana. We work with local service and retail businesses in India and the Gulf who already do excellent work offline — and deserve a digital presence that finally says so."
+        title="Alif — the first stroke of a business that scales"
+        intro="Alif Growth Media is an embedded technical partner and business software studio in Warangal, Telangana. We partner with local service and retail businesses in India and the Gulf to build scalable web platforms, visual CMS editors, custom WhatsApp CRMs, and executive dashboards that put owners in complete control."
       />
 
       {/* Origin story + facts */}
