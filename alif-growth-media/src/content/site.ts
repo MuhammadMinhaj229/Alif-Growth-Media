@@ -188,6 +188,164 @@ export const collaborations = [
   },
 ];
 
+export type Prototype = {
+  id: string;
+  title: string;
+  tagline: string;
+  category: string;
+  badge: string;
+  illustrationType: "visual-cms" | "whatsapp-crm" | "invoicing" | "membership" | "store-orders" | "dashboard" | "showcase" | "reports";
+  summary: string;
+  bulletPoints: string[];
+  liveUrl: string;
+  repoName: string;
+  readyTime: string;
+};
+
+export function getPrototypeWhatsappUrl(title: string): string {
+  const msg = `Hello Alif Growth Media, I checked your "${title}" prototype and would like to discuss customizing it for my business.`;
+  return `https://wa.me/${company.whatsappPhone}?text=${encodeURIComponent(msg)}`;
+}
+
+export const prototypes: Prototype[] = [
+  {
+    id: "visual-cms",
+    title: "Visual Website & Content Editor",
+    tagline: "Update your website anytime directly from your phone — no developers or coding needed.",
+    category: "Website Management",
+    badge: "Live Prototype",
+    illustrationType: "visual-cms",
+    summary: "Click any text, photo, or announcement banner to edit it on the spot and hit save. Your live site updates instantly without waiting for a coder.",
+    bulletPoints: [
+      "Change product prices and banner announcements in 1 click",
+      "Works on any mobile phone, tablet, or laptop",
+      "Never pay or wait for a web developer for simple updates",
+    ],
+    liveUrl: "https://safar-studio-snm.vercel.app",
+    repoName: "crm-invoicing-hub",
+    readyTime: "Ready to Customize",
+  },
+  {
+    id: "whatsapp-crm",
+    title: "WhatsApp Customer Hub & CRM",
+    tagline: "Turn missed WhatsApp chats into organized paying customers with automated greetings.",
+    category: "Customer & Sales Hub",
+    badge: "Live Prototype",
+    illustrationType: "whatsapp-crm",
+    summary: "All incoming messages from Google, your website, and Instagram arrive in one organized team inbox with smart instant replies.",
+    bulletPoints: [
+      "Instant greeting & catalog reply when customers message",
+      "Organize new leads, orders, and repeat customers clearly",
+      "Never lose an inquiry when your shop or staff is busy",
+    ],
+    liveUrl: "https://safar-crm-theta.vercel.app",
+    repoName: "safar-crm",
+    readyTime: "Ready to Customize",
+  },
+  {
+    id: "invoicing",
+    title: "1-Tap Digital Invoicing & Daily Cash Tracker",
+    tagline: "Generate professional bills in seconds and send them directly to customer WhatsApps.",
+    category: "Billing & Cashflow",
+    badge: "Live Prototype",
+    illustrationType: "invoicing",
+    summary: "Stop searching through paper bill books. Create clean digital receipts, track daily Cash vs. UPI collections, and stay tax-ready.",
+    bulletPoints: [
+      "Send clean PDF receipts straight to customer WhatsApp in 1 tap",
+      "Daily cash collection tracker: see today's exact totals instantly",
+      "Customer payment history: know who paid and who has dues",
+    ],
+    liveUrl: "https://invofy-kappa.vercel.app",
+    repoName: "invofy",
+    readyTime: "Ready to Customize",
+  },
+  {
+    id: "membership",
+    title: "Member Records & Fee Renewal Manager",
+    tagline: "Automate monthly fee collections and send friendly WhatsApp payment reminders.",
+    category: "Membership & Dues",
+    badge: "Live Prototype",
+    illustrationType: "membership",
+    summary: "Designed for gyms, fitness clubs, academies, and subscription services. Track active plans, expiring passes, and pending dues with zero paperwork.",
+    bulletPoints: [
+      "Automatic WhatsApp reminder links before memberships expire",
+      "Color-coded member attendance and payment status",
+      "Instant receipt generation and renewal tracking",
+    ],
+    liveUrl: "https://e-repcount-gym-payment-manager.vercel.app",
+    repoName: "e-repcount-gym-payment-manager",
+    readyTime: "Ready to Customize",
+  },
+  {
+    id: "store-orders",
+    title: "Household Grocery & Fresh Store Platform",
+    tagline: "A clean mobile catalog for customers to place weekly orders easily.",
+    category: "Digital Storefront & Orders",
+    badge: "Deployed Platform",
+    illustrationType: "store-orders",
+    summary: "Ideal for grocery shops, meat stores, and organic suppliers. Customers browse items by category, build a cart, and place orders directly to your WhatsApp.",
+    bulletPoints: [
+      "Mobile-first ordering that even elderly customers find effortless",
+      "Direct order receipt dispatched to your WhatsApp counter",
+      "Easy item availability and price adjustment",
+    ],
+    liveUrl: "https://safa-foods-xuac.vercel.app",
+    repoName: "Safa-Foods",
+    readyTime: "Production Ready",
+  },
+  {
+    id: "showcase",
+    title: "Luxury Interior & Craftsmanship Showcase",
+    tagline: "Present premium craftsmanship with elegant galleries and fast inquiry booking.",
+    category: "Portfolio & Consultations",
+    badge: "Deployed Platform",
+    illustrationType: "showcase",
+    summary: "Built for interior designers, architects, and custom fabricators. Showcase finished projects with smooth photo galleries and instant estimation requests.",
+    bulletPoints: [
+      "High-definition project galleries organized by style and room",
+      "Smart inquiry form that captures room size and budget intent",
+      "Fast, lightweight loading that looks stunning on mobile",
+    ],
+    liveUrl: "https://dt-interiors.vercel.app",
+    repoName: "Dt-interiors",
+    readyTime: "Production Ready",
+  },
+  {
+    id: "boutique",
+    title: "Boutique Fashion & Ethnic Wear Storefront",
+    tagline: "Turn Instagram visitors into buyers with a browsable digital collection.",
+    category: "Boutique & Retail",
+    badge: "Deployed Platform",
+    illustrationType: "store-orders",
+    summary: "Perfect for clothing boutiques and jewelry brands. Customers browse seasonal collections, check availability, and inquire about their size in 1 tap.",
+    bulletPoints: [
+      "Organized by seasonal collections and product styles",
+      "1-tap 'Check Availability on WhatsApp' button on every item",
+      "Modern look that elevates your brand reputation",
+    ],
+    liveUrl: "https://sumeeracollections.vercel.app",
+    repoName: "sumera_collections",
+    readyTime: "Production Ready",
+  },
+  {
+    id: "reports",
+    title: "Business Insight & Visual Reporting Studio",
+    tagline: "Turn complex spreadsheets into simple visual charts that show how sales are moving.",
+    category: "Owner Reports & Charts",
+    badge: "Live Prototype",
+    illustrationType: "reports",
+    summary: "Drop in your sales records or customer lists and immediately view clear graphs showing your bestselling days, popular products, and growth patterns.",
+    bulletPoints: [
+      "Simple visual charts instead of complicated spreadsheets",
+      "Runs 100% privately on your device with no data uploaded",
+      "Identify peak selling hours and customer trends in seconds",
+    ],
+    liveUrl: "https://data-automation-studio-orpin.vercel.app",
+    repoName: "data-automation-studio",
+    readyTime: "Ready to Customize",
+  },
+];
+
 export type CaseStudy = {
   slug: string;
   name: string;
