@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Quote, ExternalLink, MessageCircle, Sparkles } from "lucide-react";
-import { PrototypeIllustration } from "@/components/site/PrototypeIllustration";
+import { ArrowRight, Check, Quote, MessageCircle, Sparkles } from "lucide-react";
 import { InteractiveDemoSuite } from "@/components/site/InteractiveDemoSuite";
 import { IndustryMaturityShowcase } from "@/components/site/IndustryMaturityShowcase";
 import { HybridTechTeamBanner } from "@/components/site/HybridTechTeamBanner";
@@ -17,13 +16,11 @@ import {
   Parallax,
   Reveal,
   ScrollDrift,
-  ScrollScene,
-  ScrollStage,
   Stagger,
   StaggerItem,
   EASE,
 } from "@/components/motion/primitives";
-import { collaborations, company, pillars, problems, results, services, steps, prototypes, getPrototypeWhatsappUrl } from "@/content/site";
+import { collaborations, company, pillars, results, services, steps } from "@/content/site";
 
 const title = "Alif Growth Media | Custom Business Software, Visual CMS & Operating Systems";
 const description =
@@ -75,64 +72,64 @@ function Index() {
   return (
     <SiteLayout>
       {/* Hero */}
-      <section className="relative overflow-hidden px-5 pb-16 pt-28 sm:px-6 sm:pt-32 md:pb-28 md:pt-40 lg:px-8">
-        <div className="mx-auto grid w-full max-w-6xl items-center gap-10 md:grid-cols-[1.05fr_0.95fr] md:gap-12">
+      <section className="relative overflow-hidden px-4 pb-14 pt-24 sm:px-6 sm:pt-32 md:pb-24 md:pt-36 lg:px-8">
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-8 md:grid-cols-[1.05fr_0.95fr] md:gap-12">
           <div>
             <motion.span
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: EASE }}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card/85 px-3.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary sm:px-4 sm:text-xs"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/85 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-primary sm:px-4 sm:text-xs"
             >
-              Your Dedicated Hybrid Tech & Systems Partner · Telangana & Gulf
+              <Sparkles className="w-3 h-3 text-gold" /> Dedicated Hybrid Tech Partner · Telangana & Gulf
             </motion.span>
-            <h1 className="mt-5 text-[clamp(2.1rem,7.6vw,3.75rem)] font-semibold leading-[1.06] sm:mt-6">
+            <h1 className="mt-4 text-[clamp(2rem,7vw,3.6rem)] font-semibold leading-[1.06] sm:mt-6">
               {headline.map((word, i) => (
                 <motion.span
                   key={`${word}-${i}`}
                   className="inline-block"
-                  initial={{ opacity: 0, y: 22 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 + i * 0.06, ease: EASE }}
+                  transition={{ duration: 0.55, delay: 0.08 + i * 0.05, ease: EASE }}
                 >
                   {word}&nbsp;
                 </motion.span>
               ))}
               <motion.span
                 className="gradient-gold-text inline-block"
-                initial={{ opacity: 0, y: 22 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1 + headline.length * 0.06, ease: EASE }}
+                transition={{ duration: 0.65, delay: 0.08 + headline.length * 0.05, ease: EASE }}
               >
                 Your Complete Online Systems.
               </motion.span>
             </h1>
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
-              className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg"
+              transition={{ duration: 0.55, delay: 0.45, ease: EASE }}
+              className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:mt-5 sm:text-base"
             >
-              Need a hybrid technical team in your corner who builds your online systems and manages everything? We engineer high-speed websites with live visual editors, custom WhatsApp CRMs, 1-tap digital billing, and mobile executive dashboards—and manage your entire tech stack daily so you never hire full-time developers or touch code.
+              Need a hybrid technical team who builds custom online systems and manages everything daily? We engineer fast websites with visual editors, custom WhatsApp CRMs, 1-tap digital billing, and mobile dashboards—so you never hire full-time developers or touch code.
             </motion.p>
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.62, ease: EASE }}
-              className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
+              transition={{ duration: 0.55, delay: 0.55, ease: EASE }}
+              className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center"
             >
               <HoverLift className="w-full sm:w-auto">
                 <Link
                   to="/contact"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-xs sm:text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] sm:w-auto"
                 >
-                  Schedule a Tech Architecture Audit <ArrowRight className="h-4 w-4" />
+                  Free Tech Architecture Audit <ArrowRight className="h-4 w-4" />
                 </Link>
               </HoverLift>
               <HoverLift className="w-full sm:w-auto">
                 <Link
                   to="/services"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card/85 px-7 py-3.5 text-sm font-semibold transition-colors hover:bg-muted sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card/85 px-6 py-3 text-xs sm:text-sm font-semibold transition-colors hover:bg-muted sm:w-auto"
                 >
                   Explore Software Suite
                 </Link>
@@ -141,27 +138,27 @@ function Index() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.78 }}
-              className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground"
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted-foreground"
             >
-              {["We Build & Manage Everything", "Live Visual Admin (No Code)", "Custom WhatsApp CRM", "Mobile Cash & BI Dashboard", "₹0 Upfront Risk"].map((p) => (
-                <span key={p} className="inline-flex items-center gap-2">
-                  <Check className="h-4 w-4 shrink-0 text-primary" /> {p}
+              {["We Build & Manage Everything", "Live Visual Admin (No Code)", "Custom WhatsApp CRM", "Mobile Cash & BI Tracker", "₹0 Upfront Risk"].map((p) => (
+                <span key={p} className="inline-flex items-center gap-1.5">
+                  <Check className="h-3.5 w-3.5 shrink-0 text-primary" /> {p}
                 </span>
               ))}
             </motion.div>
           </div>
 
           <motion.div
-            className="relative mb-16 md:mb-0"
-            initial={{ opacity: 0, scale: 0.94 }}
+            className="relative mb-8 md:mb-0"
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: EASE }}
+            transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
           >
-            <Parallax distance={26} scale={[1, 1.08]}>
+            <Parallax distance={22} scale={[1, 1.06]}>
               <img
                 src={heroArt}
-                alt="Abstract emerald and gold artwork representing Alif Growth Media digital growth systems"
+                alt="Alif Growth Media hybrid technical team systems architecture"
                 width={1200}
                 height={1200}
                 fetchPriority="high"
@@ -170,51 +167,60 @@ function Index() {
               />
             </Parallax>
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.7, ease: EASE }}
-              className="surface-card absolute -bottom-12 left-2 right-2 p-4 sm:-bottom-6 sm:left-4 sm:right-4 sm:p-5 md:-left-8 md:right-10"
+              transition={{ duration: 0.6, delay: 0.6, ease: EASE }}
+              className="surface-card absolute -bottom-8 left-2 right-2 p-3.5 sm:-bottom-6 sm:left-4 sm:right-4 sm:p-4 md:-left-6 md:right-8 rounded-xl sm:rounded-2xl border border-border shadow-lg"
             >
-              <h2 className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-primary sm:text-sm">
-                What changes for your business
+              <h2 className="text-[0.68rem] sm:text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                What Changes For Your Business
               </h2>
-              <ul className="mt-3 space-y-1.5 text-[0.82rem] leading-relaxed text-muted-foreground sm:space-y-2 sm:text-sm">
-                <li>Instant visual admin editor to update text, photos & prices without coding.</li>
-                <li>Custom WhatsApp CRM captures and auto-replies to every inbound customer lead.</li>
-                <li>One unified mobile dashboard reveals daily cash collections, web visits & stock.</li>
+              <ul className="mt-2 space-y-1.5 text-xs text-muted-foreground">
+                <li className="flex items-start gap-1.5">
+                  <Check className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+                  <span>Update your website text, photos & prices instantly without coding.</span>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <Check className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+                  <span>Capture & auto-reply to incoming customer WhatsApp leads in seconds.</span>
+                </li>
+                <li className="flex items-start gap-1.5">
+                  <Check className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+                  <span>Track daily cash collections, web visits & inventory from one mobile screen.</span>
+                </li>
               </ul>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      <div className="h-10 md:h-14" />
+      <div className="h-6 md:h-10" />
 
-      {/* Partner strip */}
-      <section className="border-y border-border bg-secondary/30 px-5 py-8 sm:px-6 sm:py-10 lg:px-8">
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 md:flex-row md:justify-between">
+      {/* Partner Strip */}
+      <section className="border-y border-border bg-secondary/30 px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 md:flex-row md:justify-between">
           <Reveal>
-            <p className="text-center text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted-foreground sm:text-xs md:text-left">
+            <p className="text-center text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground sm:text-xs md:text-left">
               Trusted software & platform partners in Telangana & Gulf
             </p>
           </Reveal>
-          <ScrollDrift distance={34}>
-            <Stagger className="grid w-full grid-cols-3 items-end gap-4 sm:gap-10 md:flex md:flex-wrap md:gap-14">
+          <ScrollDrift distance={28}>
+            <Stagger className="grid w-full grid-cols-3 items-end gap-3 sm:gap-8 md:flex md:flex-wrap md:gap-12">
               {collaborations.map((c, i) => (
                 <StaggerItem key={c.name} lift className="min-w-0">
-                  <div className="flex min-w-0 flex-col items-center gap-2">
+                  <div className="flex min-w-0 flex-col items-center gap-1.5">
                     <img
                       src={c.logo}
                       alt={`${c.name} logo`}
                       loading="lazy"
                       className={`w-auto max-w-full object-contain opacity-90 transition-opacity hover:opacity-100 ${
                         i === 1
-                          ? "h-16 sm:h-24 md:h-28 md:max-w-[260px]"
-                          : "h-12 sm:h-20 md:max-w-[220px]"
+                          ? "h-12 sm:h-20 md:h-24 md:max-w-[240px]"
+                          : "h-10 sm:h-16 md:max-w-[200px]"
                       }`}
                     />
                     {i < 2 && (
-                      <span className="w-full truncate text-center text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground sm:text-xs sm:tracking-[0.16em]">
+                      <span className="w-full truncate text-center text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground sm:text-xs">
                         {c.name}
                       </span>
                     )}
@@ -232,42 +238,57 @@ function Index() {
       {/* Organisations We Help Grow & Mature */}
       <IndustryMaturityShowcase />
 
-      <Section
-        eyebrow="The reality"
-        title="Why traditional web agencies and AI builders leave local owners stuck"
-        intro="AI can generate a basic website in minutes, but you cannot edit it without coding again. Meanwhile, enterprise software is too bloated and expensive for local retail, clinics, and showrooms."
-      >
-        <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-          {problems.map((p) => (
-            <StaggerItem key={p.t}>
-              <Card index={p.i} title={p.t} body={p.b} />
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </Section>
-
-      {/* Framework */}
-      <div className="gradient-deep text-primary-foreground">
-        <section className="px-5 py-16 sm:px-6 sm:py-20 md:py-24 lg:px-8">
-          <div className="mx-auto w-full max-w-6xl">
+      {/* Interactive Prototypes Simulation Sandbox */}
+      <section className="border-t border-border bg-background px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
+        <div className="mx-auto w-full max-w-6xl">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-8">
             <Reveal className="max-w-2xl">
-              <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-gold sm:text-xs">
-                Our technology framework
+              <span className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-gold sm:text-xs">
+                Live Interactive Sandbox
               </span>
-              <h2 className="mt-3 text-balance text-[clamp(1.65rem,5.2vw,2.6rem)] font-semibold leading-[1.15]">
-                Three pillars that turn your business into an automated machine
+              <h2 className="mt-2 text-balance text-[clamp(1.6rem,4.8vw,2.4rem)] font-bold leading-[1.15]">
+                Test our working software before you customize
               </h2>
-              <p className="mt-4 text-pretty text-[0.975rem] leading-relaxed text-primary-foreground/75 sm:text-base">
-                We engineer scalable web architecture, custom WhatsApp CRMs, and mobile executive dashboards so you can run your business smoothly without technical frustration.
+              <p className="mt-2 text-pretty text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                We engineer production-grade systems. Test drive our working tools right here in your browser, then customize them for your brand with ₹0 upfront fee.
               </p>
             </Reveal>
-            <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+            <Reveal>
+              <Link
+                to="/work"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/90 hover:bg-muted px-4 py-2 text-xs font-semibold text-foreground transition-colors whitespace-nowrap"
+              >
+                View all prototypes & platforms <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </Reveal>
+          </div>
+
+          <InteractiveDemoSuite />
+        </div>
+      </section>
+
+      {/* Technology Framework */}
+      <div className="gradient-deep text-primary-foreground">
+        <section className="px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
+          <div className="mx-auto w-full max-w-6xl">
+            <Reveal className="max-w-2xl">
+              <span className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-gold sm:text-xs">
+                Technology Framework
+              </span>
+              <h2 className="mt-2 text-balance text-[clamp(1.6rem,4.8vw,2.4rem)] font-semibold leading-[1.15]">
+                Three pillars that turn your business into an automated machine
+              </h2>
+              <p className="mt-3 text-pretty text-xs sm:text-sm leading-relaxed text-primary-foreground/75">
+                We engineer scalable web architecture, custom WhatsApp CRMs, and mobile executive dashboards so you run smoothly without technical stress.
+              </p>
+            </Reveal>
+            <Stagger className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
               {pillars.map((p) => (
                 <StaggerItem key={p.k} lift>
-                  <div className="h-full rounded-[var(--radius)] border border-primary-foreground/15 bg-primary-foreground/5 p-6 transition-colors hover:border-gold/40 sm:p-7">
-                    <span className="text-xs font-semibold uppercase tracking-[0.22em] text-gold">{p.k}</span>
-                    <h3 className="mt-3 text-xl font-semibold">{p.t}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-primary-foreground/75">{p.b}</p>
+                  <div className="h-full rounded-2xl border border-primary-foreground/15 bg-primary-foreground/5 p-5 sm:p-6 transition-colors hover:border-gold/40">
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{p.k}</span>
+                    <h3 className="mt-2.5 text-lg font-semibold">{p.t}</h3>
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-primary-foreground/75">{p.b}</p>
                   </div>
                 </StaggerItem>
               ))}
@@ -276,13 +297,14 @@ function Index() {
         </section>
       </div>
 
+      {/* Software Suite */}
       <Section
         eyebrow="Software Suite"
-        title="Custom software & tools built for your business identity"
+        title="Custom software built for your business identity"
         intro="Everything is integrated into one operating ecosystem, powered by Alif Growth Media so you never juggle separate freelance developers or incompatible apps."
         tone="muted"
       >
-        <Stagger className="mt-10 grid gap-4 sm:gap-5 md:grid-cols-2">
+        <Stagger className="mt-8 grid gap-4 sm:gap-5 md:grid-cols-2">
           {services.map((s) => (
             <StaggerItem key={s.slug}>
               <Link to="/services" hash={s.slug} className="block h-full">
@@ -294,118 +316,16 @@ function Index() {
         <Reveal>
           <Link
             to="/services"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all hover:gap-3"
+            className="mt-6 inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-primary transition-all hover:gap-3"
           >
             See what each service includes <ArrowRight className="h-4 w-4" />
           </Link>
         </Reveal>
       </Section>
 
-      {/* Interactive Prototypes Showcase */}
-      <section className="border-y border-border bg-background px-5 py-16 sm:px-6 sm:py-20 lg:px-8 md:py-24">
-        <div className="mx-auto w-full max-w-6xl">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
-            <Reveal className="max-w-2xl">
-              <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-gold sm:text-xs">
-                Live Working Prototypes
-              </span>
-              <h2 className="mt-2 text-balance text-[clamp(1.65rem,5.2vw,2.6rem)] font-bold leading-[1.15]">
-                Test our working software before you customize
-              </h2>
-              <p className="mt-3 text-pretty text-sm sm:text-base leading-relaxed text-muted-foreground">
-                We don't just talk about software—we build it. Click "Quick View" to test any working tool live right now, or tap "Customize" to adapt it to your workflow.
-              </p>
-            </Reveal>
-            <Reveal>
-              <Link
-                to="/work"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card/90 hover:bg-muted px-5 py-2.5 text-xs font-semibold text-foreground transition-colors whitespace-nowrap"
-              >
-                View all 8 prototypes & platforms <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </Reveal>
-          </div>
-
-          {/* Live Interactive In-Browser Demo Sandbox */}
-          <div className="mb-14">
-            <InteractiveDemoSuite />
-          </div>
-
-          <div className="my-10 flex items-center justify-center">
-            <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted/60 px-4 py-1.5 rounded-full border border-border">
-              Or Explore Standalone Production Prototypes
-            </span>
-          </div>
-
-          <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
-            {prototypes.slice(0, 4).map((p) => (
-              <StaggerItem key={p.id} lift className="h-full">
-                <div className="surface-card group flex h-full flex-col justify-between p-6 sm:p-7 rounded-2xl border border-border/80 transition-all hover:border-gold/40 hover:shadow-[var(--shadow-lift)]">
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="text-[11px] font-semibold uppercase tracking-wider text-gold bg-gold/10 px-2.5 py-1 rounded-full">
-                        {p.category}
-                      </span>
-                      <span className="inline-flex items-center gap-1 text-[11px] font-medium text-emerald-500 bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
-                        <Sparkles className="w-3 h-3" /> {p.badge}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                      {p.title}
-                    </h3>
-                    <p className="mt-1 text-sm font-medium text-foreground/90">
-                      {p.tagline}
-                    </p>
-
-                    <div className="my-5">
-                      <PrototypeIllustration type={p.illustrationType} />
-                    </div>
-
-                    <p className="text-sm leading-relaxed text-muted-foreground">
-                      {p.summary}
-                    </p>
-
-                    <ul className="mt-4 space-y-2 border-t border-border/60 pt-4">
-                      {p.bulletPoints.map((pt) => (
-                        <li key={pt} className="flex items-start gap-2 text-xs text-foreground/80">
-                          <Check className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-border flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                    <a
-                      href={p.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground px-4 py-2.5 text-xs font-semibold shadow transition-all hover:opacity-90"
-                    >
-                      <span>Quick View Prototype</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-
-                    <a
-                      href={getPrototypeWhatsappUrl(p.title)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 px-4 py-2.5 text-xs font-semibold transition-colors"
-                    >
-                      <MessageCircle className="w-3.5 h-3.5" />
-                      <span>Customize for My Business</span>
-                    </a>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
-      <Section eyebrow="How it works" title="Simple steps, clear support, no unnecessary complexity">
-        <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+      {/* How it works */}
+      <Section eyebrow="How it works" title="Simple 4-step roadmap with zero technical complexity">
+        <Stagger className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {steps.map((s, i) => (
             <StaggerItem key={s.t}>
               <Card index={`0${i + 1}`} title={s.t} body={s.b} />
@@ -414,69 +334,28 @@ function Index() {
         </Stagger>
       </Section>
 
-      {/* Transformation — pinned crossfade from Before into After */}
-      <ScrollStage length={1.7} className="bg-secondary/40">
-        <section className="px-5 py-16 sm:px-6 sm:py-20 md:py-24 lg:px-8">
-          <div className="mx-auto w-full max-w-6xl">
-            <Reveal className="max-w-2xl">
-              <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-primary sm:text-xs">
-                Transformation
-              </span>
-              <h2 className="mt-3 text-balance text-[clamp(1.65rem,5.2vw,2.6rem)] font-semibold leading-[1.15]">
-                Before and after working with Alif
-              </h2>
-              <p className="mt-4 text-pretty text-[0.975rem] leading-relaxed text-muted-foreground sm:text-base">
-                A realistic view of how a local business changes once the system is in place.
-              </p>
-            </Reveal>
-            <div className="mt-10 grid gap-4 sm:gap-5 md:grid-cols-2">
-              <ScrollScene from={-0.1} to={0.22} y={[36, 0]} scale={[1, 0.97]}>
-                <div className="surface-card h-full p-6 sm:p-7">
-                  <h3 className="text-lg font-semibold text-muted-foreground">Before</h3>
-                  <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                    <li>Static website requiring developers or coding just to change prices or photos</li>
-                    <li>Missed WhatsApp leads and forgotten follow-ups during busy workdays</li>
-                    <li>Zero daily visibility into cash collected, web visitors, or stock levels</li>
-                  </ul>
-                </div>
-              </ScrollScene>
-              <ScrollScene from={0.28} to={0.56} y={[64, 0]} scale={[0.94, 1]} delay={0.12}>
-                <div className="surface-card h-full border-primary/25 bg-secondary/40 p-6 sm:p-7">
-                  <h3 className="text-lg font-semibold text-primary">After (Powered by Alif)</h3>
-                  <ul className="mt-4 space-y-3 text-sm text-foreground/80">
-                    <li>Embedded Visual Admin: update your site and catalog in seconds without code</li>
-                    <li>Automated WhatsApp CRM routing and instant digital brochure replies</li>
-                    <li>Single Mobile BI Dashboard: live cashflow, customer histories & lead tracking</li>
-                  </ul>
-                </div>
-              </ScrollScene>
-            </div>
-          </div>
-        </section>
-      </ScrollStage>
-
-      {/* Results — numbers count up as they enter view */}
+      {/* Results */}
       <div className="bg-background/75">
-        <section className="px-5 py-16 sm:px-6 sm:py-20 md:py-24 lg:px-8">
+        <section className="px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
           <div className="mx-auto w-full max-w-6xl">
             <Reveal className="max-w-2xl">
-              <span className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-primary sm:text-xs">
-                Results
+              <span className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-primary sm:text-xs">
+                Real Business Results
               </span>
-              <h2 className="mt-3 text-balance text-[clamp(1.65rem,5.2vw,2.6rem)] font-semibold leading-[1.15]">
-                Outcomes local owners can feel
+              <h2 className="mt-2 text-balance text-[clamp(1.6rem,4.8vw,2.4rem)] font-semibold leading-[1.15]">
+                Outcomes local owners can measure
               </h2>
-              <p className="mt-4 text-pretty text-[0.975rem] leading-relaxed text-muted-foreground sm:text-base">
-                When the system is clear, the business becomes easier to run and easier to grow.
+              <p className="mt-3 text-pretty text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                When systems are simple and automated, your business becomes easier to run and consistently profitable.
               </p>
             </Reveal>
-            <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+            <Stagger className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
               {results.map((r) => (
                 <StaggerItem key={r.t} lift>
-                  <div className="surface-card h-full p-6 sm:p-7">
-                    <AnimatedStat value={r.s} className="font-display text-3xl font-semibold text-primary" />
-                    <h3 className="mt-3 text-base font-semibold">{r.t}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.b}</p>
+                  <div className="surface-card h-full p-5 sm:p-6 rounded-2xl border border-border">
+                    <AnimatedStat value={r.s} className="font-display text-2xl sm:text-3xl font-semibold text-primary" />
+                    <h3 className="mt-2 text-sm sm:text-base font-semibold">{r.t}</h3>
+                    <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">{r.b}</p>
                   </div>
                 </StaggerItem>
               ))}
@@ -484,7 +363,7 @@ function Index() {
             <Reveal>
               <Link
                 to="/work"
-                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all hover:gap-3"
+                className="mt-6 inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-primary transition-all hover:gap-3"
               >
                 See our brand partners <ArrowRight className="h-4 w-4" />
               </Link>
@@ -493,17 +372,18 @@ function Index() {
         </section>
       </div>
 
-      <Section eyebrow="Testimonial" title="What partners say" tone="deep">
-        <Reveal className="mx-auto mt-10 max-w-3xl text-center">
+      {/* Testimonial */}
+      <Section eyebrow="Partner Feedback" title="What business owners say" tone="deep">
+        <Reveal className="mx-auto mt-8 max-w-3xl text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.5, ease: EASE }}
           >
-            <Quote className="mx-auto h-10 w-10 text-gold" />
+            <Quote className="mx-auto h-8 w-8 sm:h-10 sm:w-10 text-gold" />
           </motion.div>
-          <blockquote className="mt-6 text-pretty text-[clamp(1.05rem,3.6vw,1.5rem)] font-medium leading-relaxed">
+          <blockquote className="mt-5 text-pretty text-[clamp(1rem,3.2vw,1.4rem)] font-medium leading-relaxed">
             <MaskedLines
               delay={0.15}
               lines={[
@@ -513,8 +393,8 @@ function Index() {
               ]}
             />
           </blockquote>
-          <footer className="mt-6 text-sm text-primary-foreground/75">
-            — Partner at a Telangana retail brand
+          <footer className="mt-5 text-xs sm:text-sm text-primary-foreground/75">
+            — Partner at a Telangana retail showroom
           </footer>
         </Reveal>
       </Section>
