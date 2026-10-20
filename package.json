@@ -1,0 +1,11 @@
+{
+  "name": "alif-growth-media-root",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix alif-growth-media run build",
+    "dev": "npm --prefix alif-growth-media run dev"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}
