@@ -5,15 +5,10 @@
 #   static assets  -> dist/
 #   SSR handler    -> .netlify/functions-internal/server/
 #   routing        -> dist/_redirects (catch-all to the server function)
-#
-# There is no `dist/client` in a Netlify build — that path only exists for the
-# Cloudflare target used by Lovable hosting. If the Netlify UI has a publish
-# directory set (Site settings -> Build & deploy -> Publish directory), clear
-# it or set it to `dist`, because a UI value overrides this file.
 
 [build]
-  command = "bun run build"
+  command = "npm run build"
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "22"

@@ -1,0 +1,8 @@
+# Root Netlify configuration pointing to the alif-growth-media application
+[build]
+  base = "alif-growth-media"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
