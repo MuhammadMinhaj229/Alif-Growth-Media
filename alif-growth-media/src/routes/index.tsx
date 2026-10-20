@@ -26,7 +26,7 @@ import { collaborations, company, pillars, problems, results, services, steps, p
 const title = "Alif Growth Media | Custom Business Software, Visual CMS & Operating Systems";
 const description =
   "Alif Growth Media acts as the dedicated IT team and fractional CTO for local businesses—engineering scalable websites with live visual editors, custom WhatsApp CRMs, digital invoicing, and unified mobile BI dashboards.";
-const canonical = "https://alif-growth-media.vercel.app/";
+const canonical = "https://alif-growth.netlify.app/";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,10 +38,10 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: canonical },
-      { property: "og:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { property: "og:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
       { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: canonical }],
     scripts: [

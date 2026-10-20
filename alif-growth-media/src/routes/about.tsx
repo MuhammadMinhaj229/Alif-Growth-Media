@@ -21,7 +21,7 @@ import {
 const title = "About Alif Growth Media | Our Idea, Ideology & Founder";
 const description =
   "Why Alif Growth Media exists: the meaning behind the name, the ideology we build on, the research we trust, and the standards every client engagement is held to across India and the Gulf.";
-const canonical = "https://alif-growth-media.vercel.app/about";
+const canonical = "https://alif-growth.netlify.app/about";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -32,10 +32,10 @@ export const Route = createFileRoute("/about")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: canonical },
-      { property: "og:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { property: "og:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
       { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: canonical }],
   }),

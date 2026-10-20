@@ -20,7 +20,7 @@ export const Route = createFileRoute("/work/$slug")({
     const description = study
       ? `How Alif Growth Media helped ${study.name} strengthen their digital presence, customer communication and growth.`
       : "Alif Growth Media case study.";
-    const canonical = `https://alif-growth-media.vercel.app/work/${study?.slug ?? ""}`;
+    const canonical = `https://alif-growth.netlify.app/work/${study?.slug ?? ""}`;
     return {
       meta: [
         { title },
@@ -29,10 +29,10 @@ export const Route = createFileRoute("/work/$slug")({
         { property: "og:description", content: description },
         { property: "og:type", content: "article" },
         { property: "og:url", content: canonical },
-        { property: "og:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+        { property: "og:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
       { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
       ],
       links: [{ rel: "canonical", href: canonical }],
       scripts: study
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/work/$slug")({
                 "@type": "Article",
                 headline: `${study.name} case study`,
                 description,
-                image: "https://alif-growth-media.vercel.app/og-image.jpg",
+                image: "https://alif-growth.netlify.app/og-image.jpg",
                 mainEntityOfPage: canonical,
                 author: { "@type": "Organization", name: "Alif Growth Media" },
                 publisher: {
@@ -52,7 +52,7 @@ export const Route = createFileRoute("/work/$slug")({
                   name: "Alif Growth Media",
                   logo: {
                     "@type": "ImageObject",
-                    url: "https://alif-growth-media.vercel.app/og-image.jpg",
+                    url: "https://alif-growth.netlify.app/og-image.jpg",
                   },
                 },
               }),
@@ -63,8 +63,8 @@ export const Route = createFileRoute("/work/$slug")({
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
                 itemListElement: [
-                  { "@type": "ListItem", position: 1, name: "Home", item: "https://alif-growth-media.vercel.app/" },
-                  { "@type": "ListItem", position: 2, name: "Work", item: "https://alif-growth-media.vercel.app/work" },
+                  { "@type": "ListItem", position: 1, name: "Home", item: "https://alif-growth.netlify.app/" },
+                  { "@type": "ListItem", position: 2, name: "Work", item: "https://alif-growth.netlify.app/work" },
                   { "@type": "ListItem", position: 3, name: study.name, item: canonical },
                 ],
               }),

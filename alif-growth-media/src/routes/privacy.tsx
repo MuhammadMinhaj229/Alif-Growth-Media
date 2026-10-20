@@ -8,7 +8,7 @@ import { company, privacyContent } from "@/content/site";
 const title = "Privacy Policy | Alif Growth Media";
 const description =
   "Alif Growth Media privacy policy — how we collect, use, store and protect your personal information.";
-const canonical = "https://alif-growth-media.vercel.app/privacy";
+const canonical = "https://alif-growth.netlify.app/privacy";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
@@ -19,10 +19,10 @@ export const Route = createFileRoute("/privacy")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: canonical },
-      { property: "og:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { property: "og:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
       { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
       { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: canonical }],

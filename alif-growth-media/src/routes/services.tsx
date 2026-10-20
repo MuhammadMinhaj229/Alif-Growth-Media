@@ -11,7 +11,7 @@ import { services, engagements, steps, company } from "@/content/site";
 const title = "Custom Business Software, Visual CMS & Tools — Alif Growth Media";
 const description =
   "Custom web engineering with live visual CMS, tailored WhatsApp CRMs, digital invoicing, live inventory, and mobile BI dashboards for local businesses in Telangana and the Gulf.";
-const canonical = "https://alif-growth-media.vercel.app/services";
+const canonical = "https://alif-growth.netlify.app/services";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -22,10 +22,10 @@ export const Route = createFileRoute("/services")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: canonical },
-      { property: "og:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { property: "og:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
       { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: canonical }],
     scripts: [
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/services")({
               name: s.t,
               description: s.b,
               serviceType: s.t,
-              provider: { "@type": "Organization", name: company.name, url: "https://alif-growth-media.vercel.app" },
+              provider: { "@type": "Organization", name: company.name, url: "https://alif-growth.netlify.app" },
               areaServed: ["Warangal", "Hanamkonda", "Hyderabad", "Telangana", "India", "UAE", "Saudi Arabia", "Qatar", "Kuwait", "Bahrain", "Oman"],
             },
           })),
@@ -55,7 +55,7 @@ export const Route = createFileRoute("/services")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://alif-growth-media.vercel.app/" },
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://alif-growth.netlify.app/" },
             { "@type": "ListItem", position: 2, name: "Services", item: canonical },
           ],
         }),

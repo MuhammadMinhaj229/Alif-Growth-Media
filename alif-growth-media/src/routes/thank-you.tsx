@@ -8,7 +8,7 @@ import { company, steps } from "@/content/site";
 const title = "Thank You | Alif Growth Media";
 const description =
   "Your free growth audit request has reached Alif Growth Media. Our team will review it and contact you shortly.";
-const canonical = "https://alif-growth-media.vercel.app/thank-you";
+const canonical = "https://alif-growth.netlify.app/thank-you";
 
 export const Route = createFileRoute("/thank-you")({
   head: () => ({

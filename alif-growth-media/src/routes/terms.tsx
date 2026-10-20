@@ -8,7 +8,7 @@ import { company, termsContent } from "@/content/site";
 const title = "Terms of Service | Alif Growth Media";
 const description =
   "Alif Growth Media terms of service — the conditions governing use of our website and digital growth services.";
-const canonical = "https://alif-growth-media.vercel.app/terms";
+const canonical = "https://alif-growth.netlify.app/terms";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
@@ -19,10 +19,10 @@ export const Route = createFileRoute("/terms")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: canonical },
-      { property: "og:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { property: "og:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
       { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
       { name: "robots", content: "index, follow" },
     ],
     links: [{ rel: "canonical", href: canonical }],

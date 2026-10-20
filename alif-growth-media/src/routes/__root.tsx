@@ -16,7 +16,7 @@ import { company } from "@/content/site";
 const rootTitle = "Alif Growth Media | Digital Marketing, Websites & Automation";
 const rootDescription =
   "Alif Growth Media helps local businesses in Telangana and the Gulf grow with digital marketing, websites, WhatsApp automation and clear growth systems.";
-const SITE_URL = "https://alif-growth-media.vercel.app";
+const SITE_URL = "https://alif-growth.netlify.app";
 
 function NotFoundComponent() {
   return (

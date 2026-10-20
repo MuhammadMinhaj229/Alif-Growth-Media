@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { caseStudies, blogPosts } from "@/content/site";
 
-const BASE_URL = "https://alif-growth-media.vercel.app";
+const BASE_URL = "https://alif-growth.netlify.app";
 
 interface SitemapEntry {
   path: string;

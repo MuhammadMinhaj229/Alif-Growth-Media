@@ -12,7 +12,7 @@ import { company, faqs, steps } from "@/content/site";
 const title = "Contact Alif Growth Media | Free Growth Audit in Telangana & Gulf";
 const description =
   "Talk to Alif Growth Media in Warangal. Request a free growth audit covering your online presence, enquiry handling and next best steps for your local business in India or the Gulf.";
-const canonical = "https://alif-growth-media.vercel.app/contact";
+const canonical = "https://alif-growth.netlify.app/contact";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -23,10 +23,10 @@ export const Route = createFileRoute("/contact")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: canonical },
-      { property: "og:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { property: "og:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
       { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: canonical }],
     scripts: [
@@ -35,11 +35,11 @@ export const Route = createFileRoute("/contact")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
-          "@id": "https://alif-growth-media.vercel.app/#localbusiness",
+          "@id": "https://alif-growth.netlify.app/#localbusiness",
           name: company.name,
           description,
-          url: "https://alif-growth-media.vercel.app/contact",
-          image: "https://alif-growth-media.vercel.app/og-image.jpg",
+          url: "https://alif-growth.netlify.app/contact",
+          image: "https://alif-growth.netlify.app/og-image.jpg",
           email: company.email,
           telephone: company.phoneE164,
           priceRange: "₹₹",

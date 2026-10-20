@@ -12,7 +12,7 @@ import { collaborations, results, caseStudies, prototypes, getPrototypeWhatsappU
 const title = "Working Prototypes & Client Platforms | Alif Growth Media";
 const description =
   "Explore live working software prototypes built by Alif Growth Media for local businesses — visual website builders, WhatsApp CRMs, 1-tap invoicing, and store ordering systems. Click to test live or request customization.";
-const canonical = "https://alif-growth-media.vercel.app/work";
+const canonical = "https://alif-growth.netlify.app/work";
 
 export const Route = createFileRoute("/work/")({
   head: () => ({
@@ -23,10 +23,10 @@ export const Route = createFileRoute("/work/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: canonical },
-      { property: "og:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { property: "og:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
       { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://alif-growth-media.vercel.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://alif-growth.netlify.app/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: canonical }],
   }),
