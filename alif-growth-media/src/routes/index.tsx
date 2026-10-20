@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Quote, ExternalLink, MessageCircle, Sparkles } from "lucide-react";
 import { PrototypeIllustration } from "@/components/site/PrototypeIllustration";
 import { InteractiveDemoSuite } from "@/components/site/InteractiveDemoSuite";
+import { IndustryMaturityShowcase } from "@/components/site/IndustryMaturityShowcase";
+import { HybridTechTeamBanner } from "@/components/site/HybridTechTeamBanner";
 import { motion } from "motion/react";
 
 import heroArt from "@/assets/hero-abstract.jpg";
@@ -69,7 +71,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const headline = "Empowering local businesses with custom".split(" ");
+  const headline = "Your Dedicated Hybrid Tech Team. We Build & Manage".split(" ");
   return (
     <SiteLayout>
       {/* Hero */}
@@ -82,7 +84,7 @@ function Index() {
               transition={{ duration: 0.5, ease: EASE }}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card/85 px-3.5 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-primary sm:px-4 sm:text-xs"
             >
-              Your Dedicated Embedded IT Partner · Telangana & Gulf
+              Your Dedicated Hybrid Tech & Systems Partner · Telangana & Gulf
             </motion.span>
             <h1 className="mt-5 text-[clamp(2.1rem,7.6vw,3.75rem)] font-semibold leading-[1.06] sm:mt-6">
               {headline.map((word, i) => (
@@ -102,7 +104,7 @@ function Index() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 + headline.length * 0.06, ease: EASE }}
               >
-                software & operating tools.
+                Your Complete Online Systems.
               </motion.span>
             </h1>
             <motion.p
@@ -111,7 +113,7 @@ function Index() {
               transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
               className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg"
             >
-              We engineer scalable websites with live visual admin editors, custom WhatsApp CRMs, tailored invoicing, and live inventory—all controlled through a unified mobile dashboard. Never depend on external developers again.
+              Need a hybrid technical team in your corner who builds your online systems and manages everything? We engineer high-speed websites with live visual editors, custom WhatsApp CRMs, 1-tap digital billing, and mobile executive dashboards—and manage your entire tech stack daily so you never hire full-time developers or touch code.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -142,7 +144,7 @@ function Index() {
               transition={{ duration: 0.6, delay: 0.78 }}
               className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground"
             >
-              {["Live Visual CMS", "Custom WhatsApp CRM", "Mobile BI Dashboard", "Full Client Ownership"].map((p) => (
+              {["We Build & Manage Everything", "Live Visual Admin (No Code)", "Custom WhatsApp CRM", "Mobile Cash & BI Dashboard", "₹0 Upfront Risk"].map((p) => (
                 <span key={p} className="inline-flex items-center gap-2">
                   <Check className="h-4 w-4 shrink-0 text-primary" /> {p}
                 </span>
@@ -223,6 +225,12 @@ function Index() {
           </ScrollDrift>
         </div>
       </section>
+
+      {/* Hybrid Tech Team Value & Architecture */}
+      <HybridTechTeamBanner />
+
+      {/* Organisations We Help Grow & Mature */}
+      <IndustryMaturityShowcase />
 
       <Section
         eyebrow="The reality"
