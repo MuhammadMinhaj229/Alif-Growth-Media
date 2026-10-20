@@ -21,5 +21,20 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
-  ...(customPreset ? { nitro: { preset: customPreset } } : {}),
+  ...(customPreset
+    ? {
+        nitro: {
+          preset: customPreset,
+          ...(customPreset === "vercel"
+            ? {
+                vercel: {
+                  functions: {
+                    runtime: "nodejs22.x",
+                  },
+                },
+              }
+            : {}),
+        },
+      }
+    : {}),
 });
