@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Quote, ExternalLink, MessageCircle, Sparkles } from "lucide-react";
 import { PrototypeIllustration } from "@/components/site/PrototypeIllustration";
+import { InteractiveDemoSuite } from "@/components/site/InteractiveDemoSuite";
 import { motion } from "motion/react";
 
 import heroArt from "@/assets/hero-abstract.jpg";
@@ -315,6 +316,17 @@ function Index() {
                 View all 8 prototypes & platforms <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </Reveal>
+          </div>
+
+          {/* Live Interactive In-Browser Demo Sandbox */}
+          <div className="mb-14">
+            <InteractiveDemoSuite />
+          </div>
+
+          <div className="my-10 flex items-center justify-center">
+            <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground bg-muted/60 px-4 py-1.5 rounded-full border border-border">
+              Or Explore Standalone Production Prototypes
+            </span>
           </div>
 
           <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
