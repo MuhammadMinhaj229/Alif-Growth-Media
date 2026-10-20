@@ -6,9 +6,14 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// Netlify sets NETLIFY=true during its build. Only then do we swap Nitro's
-// deploy preset; Lovable's own hosting keeps the default Cloudflare target.
+// Netlify sets NETLIFY=true during its build.
 const isNetlify = process.env.NETLIFY === "true" || process.env.NETLIFY === "1";
+
+// Vercel sets VERCEL=1 or VERCEL_ENV during its build.
+const isVercel = process.env.VERCEL === "true" || process.env.VERCEL === "1" || Boolean(process.env.VERCEL_ENV);
+
+// Pick the appropriate Nitro preset for the target cloud platform.
+const customPreset = process.env.NITRO_PRESET || (isVercel ? "vercel" : isNetlify ? "netlify" : undefined);
 
 export default defineConfig({
   tanstackStart: {
@@ -16,5 +21,5 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
-  ...(isNetlify ? { nitro: { preset: "netlify" } } : {}),
+  ...(customPreset ? { nitro: { preset: customPreset } } : {}),
 });
