@@ -10,7 +10,7 @@ The official web platform and systems portfolio for **Alif Growth Media** — ac
 
 ---
 
-## 💡 What Alif Growth Media Does
+## What Alif Growth Media Does
 
 Most local businesses stay constrained by disconnected tools: static websites that require coding just to update prices, lost inquiries over WhatsApp, manual paper billing, and zero daily revenue visibility.
 
@@ -22,40 +22,40 @@ Alif Growth Media solves this by engineering custom, self-operating business sof
 
 ---
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 This application is engineered with **TanStack Start**, the modern full-stack React framework powered by Vite and Nitro server engines.
 
 ```
 Alif-Growth-Media/
-├── alif-growth-media/               # Main application source
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── motion/              # Scroll physics & interaction primitives
-│   │   │   └── site/                # Modular UI components
-│   │   │       ├── HybridTechTeamBanner.tsx      # Interactive team comparison cards
-│   │   │       ├── IndustryMaturityShowcase.tsx  # Industry Before/After matrix
-│   │   │       ├── InteractiveDemoSuite.tsx      # Live in-browser simulators
-│   │   │       ├── Header.tsx                    # Mobile-responsive navigation drawer
-│   │   │       └── CtaBand.tsx                   # Conversion & WhatsApp hotlines
-│   │   ├── content/
-│   │   │   └── site.ts              # Central business data & copy configuration
-│   │   ├── routes/                  # TanStack File-based Routes
-│   │   │   ├── index.tsx            # Homepage with interactive sandboxes
-│   │   │   ├── services.tsx         # Full service specifications & deliverables
-│   │   │   ├── work.index.tsx       # Prototype directory & platform catalogue
-│   │   │   ├── contact.tsx          # Technical audit scheduler
-│   │   │   └── about.tsx            # Company identity & operating methodology
-│   ├── package.json
-│   ├── vite.config.ts
-│   └── netlify.toml
-├── netlify.toml                     # Root Netlify build configuration
-└── README.md
+ alif-growth-media/               # Main application source
+    src/
+       components/
+          motion/              # Scroll physics & interaction primitives
+          site/                # Modular UI components
+              HybridTechTeamBanner.tsx      # Interactive team comparison cards
+              IndustryMaturityShowcase.tsx  # Industry Before/After matrix
+              InteractiveDemoSuite.tsx      # Live in-browser simulators
+              Header.tsx                    # Mobile-responsive navigation drawer
+              CtaBand.tsx                   # Conversion & WhatsApp hotlines
+       content/
+          site.ts              # Central business data & copy configuration
+       routes/                  # TanStack File-based Routes
+          index.tsx            # Homepage with interactive sandboxes
+          services.tsx         # Full service specifications & deliverables
+          work.index.tsx       # Prototype directory & platform catalogue
+          contact.tsx          # Technical audit scheduler
+          about.tsx            # Company identity & operating methodology
+    package.json
+    vite.config.ts
+    netlify.toml
+ netlify.toml                     # Root Netlify build configuration
+ README.md
 ```
 
 ---
 
-## 🚀 How to Run Locally
+## How to Run Locally
 
 ### Prerequisites
 - Node.js `v20.x` or `v22.x` (Node 22 recommended)
@@ -77,7 +77,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🌐 How to Deploy
+## How to Deploy
 
 ### Option A: Deploy to Netlify (Current Production)
 The repository includes dedicated `netlify.toml` configurations for automated continuous deployment.
@@ -101,6 +101,6 @@ The repository includes dedicated `netlify.toml` configurations for automated co
 
 ---
 
-## 🛡️ License & Author
+## License & Author
 Engineered with precision by **Mohammed Minhaj Mahmood** ([@MuhammadMinhaj229](https://github.com/MuhammadMinhaj229)).  
 Copyright © 2026 Alif Growth Media. All rights reserved.
