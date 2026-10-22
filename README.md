@@ -10,6 +10,19 @@ The official web platform and systems portfolio for **Alif Growth Media** — ac
 
 ---
 
+## Architecture Flow
+
+```mermaid
+flowchart TD
+    Browser["Client Mobile / Desktop"] --> Router["TanStack Start SSR Engine"]
+    Router --> Layout["Responsive Motion & Interaction Primitives"]
+    Layout --> Simulators["In-Browser Interactive Software Sandboxes"]
+    Layout --> Matrix["Industry Transformation Matrix"]
+    Simulators --> Backend["Netlify Edge Runtime (Node 22)"]
+```
+
+---
+
 ## What Alif Growth Media Does
 
 Most local businesses stay constrained by disconnected tools: static websites that require coding just to update prices, lost inquiries over WhatsApp, manual paper billing, and zero daily revenue visibility.
