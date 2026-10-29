@@ -15,14 +15,15 @@ This repository uses GitHub as the source of truth and Netlify for production ho
 
 ## Automated quality checks
 
-The `.github/workflows/ci.yml` workflow runs on pull requests to `main`, pushes to `main`, and manual dispatches. It installs locked dependencies, runs ESLint and TypeScript checking, builds with the Netlify adapter enabled, then runs the Playwright Chromium smoke suite. Playwright reports are uploaded as workflow artifacts when available.
+The `.github/workflows/ci.yml` workflow runs on pull requests to `main`, pushes to `main`, and manual dispatches. It installs locked dependencies, runs the substantive ESLint rules, checks formatting for the new Playwright files, type-checks the app, builds with the Netlify adapter enabled, then runs the Playwright Chromium smoke suite. The current repository-wide Prettier rule reports hundreds of pre-existing formatting violations in application files, so CI temporarily disables only that ESLint rule to avoid mass-formatting unrelated production code. A separate cleanup should reduce that baseline before repository-wide formatting is made a hard gate. Playwright reports are uploaded as workflow artifacts when available.
 
 Run the same checks locally from the app directory:
 
 ```sh
 cd alif-growth-media
 npm ci
-npm run lint
+npm run lint:ci
+npm run format:check
 npm run typecheck
 NETLIFY=true npm run build
 npx playwright install chromium
