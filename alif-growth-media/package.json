@@ -14,7 +14,7 @@
     "typecheck": "tsc --noEmit --types vite/client,node",
     "test:e2e": "playwright test",
     "lint:ci": "eslint . --rule \"prettier/prettier: off\"",
-    "format:check": "prettier --write playwright.config.ts tests/e2e/smoke.spec.ts && git diff -- playwright.config.ts tests/e2e/smoke.spec.ts"
+    "format:check": "prettier --check playwright.config.ts tests/e2e/smoke.spec.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
