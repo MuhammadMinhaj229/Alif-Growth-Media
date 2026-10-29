@@ -40,12 +40,8 @@ jobs:
       - name: Lint (preserve existing formatting baseline)
         run: npm run lint:ci
 
-      - name: Diagnose formatting for new Playwright files
-        continue-on-error: true
-        run: |
-          npx prettier --write playwright.config.ts tests/e2e/smoke.spec.ts
-          git diff -- tests/e2e/smoke.spec.ts
-          exit 1
+      - name: Check formatting for new Playwright files
+        run: npm run format:check
 
       - name: Type-check application
         run: npm run typecheck

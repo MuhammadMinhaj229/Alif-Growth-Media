@@ -29,13 +29,15 @@ test("mobile navigation opens, follows a route, and closes", async ({ page }) =>
 
   const openButton = page.getByRole("button", { name: "Open navigation menu" });
   await openButton.click();
-  const mobileNav = page.getByRole("navigation", { name: "Mobile primary" });
-  await expect(mobileNav).toBeVisible();
-  await mobileNav.getByRole("link", { name: "Work" }).click();
+  await expect(openButton).toHaveAttribute("aria-expanded", "true");
+  const mobileMenu = page.locator(".site-menu");
+  await expect(mobileMenu).toBeVisible();
+  await mobileMenu.getByRole("link", { name: "Work" }).click();
   await expect(page).toHaveURL(/work$/);
-  await expect(
-    page.getByRole("button", { name: "Open navigation menu" }),
-  ).toHaveAttribute("aria-expanded", "false");
+  await expect(page.getByRole("button", { name: "Open navigation menu" })).toHaveAttribute(
+    "aria-expanded",
+    "false",
+  );
 });
 
 test("homepage fits a narrow mobile viewport without horizontal overflow", async ({ page }) => {
