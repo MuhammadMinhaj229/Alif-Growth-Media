@@ -23,9 +23,7 @@ test("key public routes load with a visible page heading", async ({ page }) => {
   }
 });
 
-test("homepage fits a narrow mobile viewport without horizontal overflow", async ({
-  page,
-}) => {
+test("homepage fits a narrow mobile viewport without horizontal overflow", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
