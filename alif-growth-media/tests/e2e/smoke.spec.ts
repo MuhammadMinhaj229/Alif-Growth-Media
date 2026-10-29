@@ -26,6 +26,7 @@ test("key public routes load with a visible page heading", async ({ page }) => {
 test("mobile navigation opens, follows a route, and closes", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
+  await page.waitForLoadState("networkidle");
 
   const menuButton = page.locator(".site-header__menu-button");
   await menuButton.click();
