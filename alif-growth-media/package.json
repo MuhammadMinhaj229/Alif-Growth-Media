@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "postbuild": "node -e \"const fs = require('fs'); if (fs.existsSync('.vercel/output/static') && !fs.existsSync('dist')) { fs.cpSync('.vercel/output/static', 'dist', { recursive: true }); }\""
+    "postbuild": "node -e \"const fs = require('fs'); if (fs.existsSync('.vercel/output/static') && !fs.existsSync('dist')) { fs.cpSync('.vercel/output/static', 'dist', { recursive: true }); }\"",
+    "typecheck": "tsc --noEmit --types vite/client,node",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -84,7 +86,8 @@
     "prettier": "^3.7.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
-    "vite": "^8.1.5"
+    "vite": "^8.1.5",
+    "@playwright/test": "1.64.1"
   },
   "engines": {
     "node": "22.x"
