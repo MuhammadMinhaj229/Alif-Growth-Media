@@ -12,7 +12,7 @@ import {
   Sparkles,
   MessageCircle,
   Check,
-  X
+  X,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { company } from "@/content/site";
@@ -44,17 +44,18 @@ const INDUSTRIES: IndustryTrack[] = [
     beforePoints: [
       "Inquiries lost in personal chat feeds",
       "Weeks of delay to change prices or photos",
-      "Zero customer repeat purchase tracking"
+      "Zero customer repeat purchase tracking",
     ],
     afterPoints: [
       "Visual editor: edit prices & photos from phone in seconds",
       "Instant automated WhatsApp catalog replies",
-      "VIP repeat customer profile history"
+      "VIP repeat customer profile history",
     ],
     deployedTools: ["Visual CMS", "WhatsApp Sales Hub", "Catalog Bot"],
     metric: "+42%",
     metricLabel: "Inquiry Conversion",
-    whatsappText: "Hello Alif Growth Media, I run a retail showroom and want to upgrade our digital store and WhatsApp customer system."
+    whatsappText:
+      "Hello Alif Growth Media, I run a retail showroom and want to upgrade our digital store and WhatsApp customer system.",
   },
   {
     id: "wholesale",
@@ -66,17 +67,18 @@ const INDUSTRIES: IndustryTrack[] = [
     beforePoints: [
       "Handwritten paper slips & lost receipts",
       "Evening cash doesn't match UPI totals",
-      "Unexpected stockouts during rush hours"
+      "Unexpected stockouts during rush hours",
     ],
     afterPoints: [
       "1-Tap digital invoice to customer WhatsApp",
       "Real-time cash vs. UPI reconciliation ledger",
-      "Automatic low-stock threshold alerts"
+      "Automatic low-stock threshold alerts",
     ],
     deployedTools: ["1-Tap Invoicing", "Daily Cash vs UPI", "Stock Alerts"],
     metric: "100%",
     metricLabel: "Daily Register Accuracy",
-    whatsappText: "Hello Alif Growth Media, I operate a supermarket/wholesale business and want to automate our billing, cash ledger, and inventory."
+    whatsappText:
+      "Hello Alif Growth Media, I operate a supermarket/wholesale business and want to automate our billing, cash ledger, and inventory.",
   },
   {
     id: "fitness",
@@ -88,17 +90,18 @@ const INDUSTRIES: IndustryTrack[] = [
     beforePoints: [
       "Members forget monthly expiry dates",
       "Staff feel awkward calling for renewal fees",
-      "Paper cards get torn, lost, or misplaced"
+      "Paper cards get torn, lost, or misplaced",
     ],
     afterPoints: [
       "Automatic WhatsApp fee reminders with UPI links",
       "Color-coded membership statuses (Active/Due)",
-      "Instant monthly revenue tracking on phone"
+      "Instant monthly revenue tracking on phone",
     ],
     deployedTools: ["Member Roster", "Auto WhatsApp Alerts", "Dues Dashboard"],
     metric: "95%+",
     metricLabel: "On-Time Fee Collection",
-    whatsappText: "Hello Alif Growth Media, I manage a gym/clinic/academy and want to automate member records and automated WhatsApp fee reminders."
+    whatsappText:
+      "Hello Alif Growth Media, I manage a gym/clinic/academy and want to automate member records and automated WhatsApp fee reminders.",
   },
   {
     id: "services",
@@ -110,18 +113,19 @@ const INDUSTRIES: IndustryTrack[] = [
     beforePoints: [
       "Scattered DMs across Instagram, calls & texts",
       "Manual Word/Excel PDF invoices take hours",
-      "Slow client project milestone approvals"
+      "Slow client project milestone approvals",
     ],
     afterPoints: [
       "High-speed portfolio web portal with lead form",
       "Branded PDF billing with instant WhatsApp link",
-      "Project pipeline: Lead -> Active -> Paid"
+      "Project pipeline: Lead -> Active -> Paid",
     ],
     deployedTools: ["Portfolio Portal", "Lead Intake Bot", "Milestone Billing"],
     metric: "2.4x",
     metricLabel: "Faster Client Sign-offs",
-    whatsappText: "Hello Alif Growth Media, I run a consultancy/contracting service and need a custom client portal and milestone billing setup."
-  }
+    whatsappText:
+      "Hello Alif Growth Media, I run a consultancy/contracting service and need a custom client portal and milestone billing setup.",
+  },
 ];
 
 export function IndustryMaturityShowcase() {
@@ -165,7 +169,9 @@ export function IndustryMaturityShowcase() {
                 <div className="flex items-center justify-between w-full mb-2">
                   <div
                     className={`w-8 h-8 rounded-xl flex items-center justify-center transition-colors ${
-                      isSelected ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                      isSelected
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted text-muted-foreground"
                     }`}
                   >
                     <TabIcon className="w-4 h-4" />
@@ -210,9 +216,7 @@ export function IndustryMaturityShowcase() {
                     <h3 className="text-base sm:text-lg font-bold text-foreground">
                       {current.title}
                     </h3>
-                    <p className="text-xs text-muted-foreground">
-                      {current.subtitle}
-                    </p>
+                    <p className="text-xs text-muted-foreground">{current.subtitle}</p>
                   </div>
                 </div>
 

@@ -12,7 +12,7 @@ import {
   ShieldCheck,
   Zap,
   ArrowRight,
-  Sparkles
+  Sparkles,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { EASE } from "@/components/motion/primitives";
@@ -25,26 +25,26 @@ export function HybridTechTeamBanner() {
       icon: Code2,
       title: "We Build",
       desc: "Custom websites with visual editors, WhatsApp CRMs & mobile cash trackers.",
-      tag: "Custom Engineered"
+      tag: "Custom Engineered",
     },
     {
       icon: Server,
       title: "We Manage",
       desc: "Cloud servers, automated daily backups, security & 99.9% uptime handled 24/7.",
-      tag: "Zero Tech Stress"
+      tag: "Zero Tech Stress",
     },
     {
       icon: Users,
       title: "We Train",
       desc: "Simple mobile-first screens so floor staff become proficient in 5 minutes.",
-      tag: "Easy for Staff"
+      tag: "Easy for Staff",
     },
     {
       icon: Headphones,
       title: "VIP Hotline",
       desc: "Message your dedicated Alif partner on WhatsApp whenever you need an update.",
-      tag: "Direct WhatsApp"
-    }
+      tag: "Direct WhatsApp",
+    },
   ];
 
   const comparisonData = {
@@ -54,10 +54,18 @@ export function HybridTechTeamBanner() {
       color: "border-primary bg-primary/5",
       points: [
         { label: "Cost & Risk", val: "₹0 Upfront Risk · Pay only after you succeed", good: true },
-        { label: "Ongoing Upkeep", val: "100% Fully Managed 24/7 (servers, backups, updates)", good: true },
-        { label: "Customization", val: "Tailor-made in your brand's name for your exact flow", good: true },
-        { label: "Support", val: "Direct WhatsApp hotline with fast replies", good: true }
-      ]
+        {
+          label: "Ongoing Upkeep",
+          val: "100% Fully Managed 24/7 (servers, backups, updates)",
+          good: true,
+        },
+        {
+          label: "Customization",
+          val: "Tailor-made in your brand's name for your exact flow",
+          good: true,
+        },
+        { label: "Support", val: "Direct WhatsApp hotline with fast replies", good: true },
+      ],
     },
     inHouse: {
       title: "In-House IT Hire",
@@ -65,10 +73,14 @@ export function HybridTechTeamBanner() {
       color: "border-border bg-card/60",
       points: [
         { label: "Cost & Risk", val: "₹60,000 to ₹1,00,000+ monthly fixed salary", good: false },
-        { label: "Ongoing Upkeep", val: "Requires technical manager to supervise daily work", good: false },
+        {
+          label: "Ongoing Upkeep",
+          val: "Requires technical manager to supervise daily work",
+          good: false,
+        },
         { label: "Customization", val: "Limited to what 1 junior developer knows", good: false },
-        { label: "Support", val: "Office hours only · Sick leave & vacation delays", good: false }
-      ]
+        { label: "Support", val: "Office hours only · Sick leave & vacation delays", good: false },
+      ],
     },
     freelancer: {
       title: "Freelance Developers",
@@ -76,11 +88,15 @@ export function HybridTechTeamBanner() {
       color: "border-border bg-card/60",
       points: [
         { label: "Cost & Risk", val: "High upfront quote with surprise extra fees", good: false },
-        { label: "Ongoing Upkeep", val: "Disappears after delivery · No long-term maintenance", good: false },
+        {
+          label: "Ongoing Upkeep",
+          val: "Disappears after delivery · No long-term maintenance",
+          good: false,
+        },
         { label: "Customization", val: "Cloned templates · Hard to edit yourself", good: false },
-        { label: "Support", val: "Unresponsive phone calls when your site breaks", good: false }
-      ]
-    }
+        { label: "Support", val: "Unresponsive phone calls when your site breaks", good: false },
+      ],
+    },
   };
 
   return (
@@ -94,10 +110,13 @@ export function HybridTechTeamBanner() {
           </div>
           <h2 className="text-balance text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-foreground">
             You run the business. <br className="hidden sm:inline" />
-            <span className="gradient-gold-text">We build & manage your complete online systems.</span>
+            <span className="gradient-gold-text">
+              We build & manage your complete online systems.
+            </span>
           </h2>
           <p className="mt-3 text-pretty text-sm sm:text-base leading-relaxed text-muted-foreground max-w-xl mx-auto">
-            No full-time coders to hire. No disappearing freelancers. We build your custom tools and actively manage your tech every single day.
+            No full-time coders to hire. No disappearing freelancers. We build your custom tools and
+            actively manage your tech every single day.
           </p>
         </div>
 
@@ -155,7 +174,9 @@ export function HybridTechTeamBanner() {
             <button
               onClick={() => setActiveTab("alif")}
               className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${
-                activeTab === "alif" ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground"
+                activeTab === "alif"
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "text-muted-foreground"
               }`}
             >
               Alif Hybrid Team
@@ -163,7 +184,9 @@ export function HybridTechTeamBanner() {
             <button
               onClick={() => setActiveTab("inHouse")}
               className={`flex-1 py-2 text-xs font-medium rounded-lg transition-all ${
-                activeTab === "inHouse" ? "bg-card text-foreground shadow-sm" : "text-muted-foreground"
+                activeTab === "inHouse"
+                  ? "bg-card text-foreground shadow-sm"
+                  : "text-muted-foreground"
               }`}
             >
               In-House IT
@@ -171,7 +194,9 @@ export function HybridTechTeamBanner() {
             <button
               onClick={() => setActiveTab("freelancer")}
               className={`flex-1 py-2 text-xs font-medium rounded-lg transition-all ${
-                activeTab === "freelancer" ? "bg-card text-foreground shadow-sm" : "text-muted-foreground"
+                activeTab === "freelancer"
+                  ? "bg-card text-foreground shadow-sm"
+                  : "text-muted-foreground"
               }`}
             >
               Freelancer
@@ -182,7 +207,9 @@ export function HybridTechTeamBanner() {
           <div className="block md:hidden">
             <div className={`p-4 rounded-2xl border ${comparisonData[activeTab].color}`}>
               <div className="flex items-center justify-between mb-3">
-                <span className="font-bold text-sm text-foreground">{comparisonData[activeTab].title}</span>
+                <span className="font-bold text-sm text-foreground">
+                  {comparisonData[activeTab].title}
+                </span>
                 <span className="text-[10px] font-semibold text-muted-foreground">
                   {comparisonData[activeTab].badge}
                 </span>
@@ -199,7 +226,9 @@ export function HybridTechTeamBanner() {
                       ) : (
                         <XCircle className="w-4 h-4 text-destructive/80 shrink-0 mt-0.5" />
                       )}
-                      <span className={`font-medium ${pt.good ? "text-foreground font-semibold" : "text-muted-foreground"}`}>
+                      <span
+                        className={`font-medium ${pt.good ? "text-foreground font-semibold" : "text-muted-foreground"}`}
+                      >
                         {pt.val}
                       </span>
                     </div>
@@ -215,9 +244,13 @@ export function HybridTechTeamBanner() {
               <thead>
                 <tr className="border-b border-border text-muted-foreground text-[11px] uppercase tracking-wider">
                   <th className="py-2.5 pr-4 font-semibold">Key Factor</th>
-                  <th className="py-2.5 px-3 font-semibold text-muted-foreground/70">In-House Coders</th>
+                  <th className="py-2.5 px-3 font-semibold text-muted-foreground/70">
+                    In-House Coders
+                  </th>
                   <th className="py-2.5 px-3 font-semibold text-muted-foreground/70">Freelancer</th>
-                  <th className="py-2.5 pl-3 font-bold text-primary bg-primary/5 rounded-t-lg">Alif Hybrid Team</th>
+                  <th className="py-2.5 pl-3 font-bold text-primary bg-primary/5 rounded-t-lg">
+                    Alif Hybrid Team
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border/60">
@@ -234,7 +267,9 @@ export function HybridTechTeamBanner() {
                 </tr>
                 <tr className="hover:bg-muted/30 transition-colors">
                   <td className="py-3 pr-4 font-semibold text-foreground">Daily Upkeep & Cloud</td>
-                  <td className="py-3 px-3 text-muted-foreground">Requires daily technical management</td>
+                  <td className="py-3 px-3 text-muted-foreground">
+                    Requires daily technical management
+                  </td>
                   <td className="py-3 px-3 text-muted-foreground">Zero support after delivery</td>
                   <td className="py-3 pl-3 font-bold text-primary bg-primary/5">
                     <div className="flex items-center gap-1.5">
