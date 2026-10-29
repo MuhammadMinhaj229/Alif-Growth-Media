@@ -222,3 +222,18 @@
   .agency-home *::before,
   .agency-home *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+
+/* Match the shared header to the light agency canvas on the homepage. */
+.site-header:has(~ main .agency-home) .site-brand__wordmark strong { color: var(--agency-ink); }
+.site-header:has(~ main .agency-home) .site-brand__wordmark small { color: var(--agency-muted); }
+.site-header:has(~ main .agency-home) .site-nav__link::after { background: var(--agency-clay); }
+.site-header:has(~ main .agency-home) .site-header__cta:hover {
+  border-color: var(--agency-olive);
+  background: var(--agency-olive);
+  color: #fffefa;
+}
+.site-header:has(~ main .agency-home) .site-header__menu-button {
+  border-color: var(--agency-line);
+  color: var(--agency-ink);
+}
