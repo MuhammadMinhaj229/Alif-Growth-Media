@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=https://storage.googleapis.com/coderabbit_public_assets/schema.v2.json
+language: en-US
+tone_instructions: >-
+  Be precise, practical, and prioritize actionable defects over stylistic
+  preferences. Explain impact and suggest concise fixes. Do not invent issues.
+enable_free_tier: true
+
+reviews:
+  profile: assertive
+  request_changes_workflow: false
+  high_level_summary: true
+  changed_files_summary: true
+  sequence_diagrams: true
+  path_instructions:
+    - path: "alif-growth-media/src/**/*.tsx"
+      instructions: >-
+        Review React and TanStack Start SSR safety, keyboard accessibility,
+        semantic markup, responsive layouts, performance, and preservation of
+        existing routes, links, client destinations, and form behavior.
+    - path: "alif-growth-media/src/styles.css"
+      instructions: >-
+        Review responsive breakpoints, cascade regressions, horizontal overflow,
+        color contrast, reduced-motion support, and global styles that could
+        unexpectedly break existing components.
+    - path: "alif-growth-media/tests/e2e/**"
+      instructions: >-
+        Check Playwright assertions are deterministic, use stable locators,
+        and cover useful route, accessibility, and mobile interactions.
+    - path: ".github/workflows/**"
+      instructions: >-
+        Review workflow permissions, pull-request triggers, dependency safety,
+        and potential secrets exposure.
+  auto_review:
+    enabled: true
+    auto_incremental_review: true
+    drafts: true
+    base_branches:
+      - main
+
+chat:
+  auto_reply: true
+
+knowledge_base:
+  opt_out: false
+  web_search:
+    enabled: true

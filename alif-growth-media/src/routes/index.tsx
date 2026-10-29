@@ -1,30 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Quote, MessageCircle, Sparkles } from "lucide-react";
-import { InteractiveDemoSuite } from "@/components/site/InteractiveDemoSuite";
-import { IndustryMaturityShowcase } from "@/components/site/IndustryMaturityShowcase";
-import { HybridTechTeamBanner } from "@/components/site/HybridTechTeamBanner";
-import { motion } from "motion/react";
+import { ArrowRight, ArrowUpRight, Check, Layers3, MonitorSmartphone, ShoppingBag, Workflow } from "lucide-react";
 
-import heroArt from "@/assets/hero-abstract.jpg";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { CtaBand } from "@/components/site/CtaBand";
-import { Section, Card } from "@/components/site/Sections";
-import {
-  AnimatedStat,
-  HoverLift,
-  MaskedLines,
-  Parallax,
-  Reveal,
-  ScrollDrift,
-  Stagger,
-  StaggerItem,
-  EASE,
-} from "@/components/motion/primitives";
-import { collaborations, company, pillars, results, services, steps } from "@/content/site";
+import { company } from "@/content/site";
+import "@/experience-home.css";
 
-const title = "Alif Growth Media | Custom Business Software, Visual CMS & Operating Systems";
+const title = "Alif Growth Media | Thoughtful Digital Experiences";
 const description =
-  "Alif Growth Media acts as the dedicated IT team and fractional CTO for local businesses—engineering scalable websites with live visual editors, custom WhatsApp CRMs, digital invoicing, and unified mobile BI dashboards.";
+  "Alif Growth Media designs and builds considered websites, e-commerce experiences and practical digital systems for growing businesses across India and the Gulf.";
 const canonical = "https://alif-growth.netlify.app/";
 
 export const Route = createFileRoute("/")({
@@ -51,7 +34,7 @@ export const Route = createFileRoute("/")({
           "@type": "ProfessionalService",
           name: "Alif Growth Media",
           description,
-          email: "hello.alifstudio@gmail.com",
+          email: company.email,
           telephone: company.phoneE164,
           areaServed: ["Telangana, India", "UAE", "Saudi Arabia", "Qatar", "Kuwait", "Bahrain", "Oman"],
           address: {
@@ -67,339 +50,307 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const projects = [
+  {
+    name: "SAFA Fresh",
+    category: "E-commerce · Retail",
+    description: "A welcoming digital storefront for fresh food and everyday essentials.",
+    image: "https://safa-foods-xuac.vercel.app/images/hero-ingredients.png",
+    imageAlt: "Fresh ingredients photographed for SAFA Fresh",
+    href: "https://safa-foods-xuac.vercel.app/",
+    className: "agency-project--wide",
+  },
+  {
+    name: "DT Interiors",
+    category: "Brand website · Interiors",
+    description: "A considered online presence for a home interiors and design studio.",
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1600&auto=format&fit=crop",
+    imageAlt: "Warm, contemporary residential architecture",
+    href: "https://dt-interiors.vercel.app/",
+    className: "",
+  },
+  {
+    name: "Sumera Collections",
+    category: "E-commerce · Fashion",
+    description: "A product-led shopping experience for contemporary ethnic wear.",
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Fashion editorial image used for the Sumera Collections storefront",
+    href: "https://sumeeracollections.vercel.app/",
+    className: "",
+  },
+];
+
+const services = [
+  {
+    number: "01",
+    icon: MonitorSmartphone,
+    title: "Websites & digital experiences",
+    description:
+      "Clear, distinctive websites that introduce your business, communicate your value, and help people take the next step.",
+    items: ["Business websites", "Landing pages", "Content-managed websites"],
+  },
+  {
+    number: "02",
+    icon: ShoppingBag,
+    title: "E-commerce & customer journeys",
+    description:
+      "Thoughtful storefronts and customer journeys that make it easier to discover products, enquire, and buy.",
+    items: ["Online stores", "Product catalogues", "Enquiry and ordering flows"],
+  },
+  {
+    number: "03",
+    icon: Workflow,
+    title: "Digital systems & automation",
+    description:
+      "Practical tools that bring everyday work into better order, from follow-ups and operations to reporting.",
+    items: ["Business portals", "WhatsApp workflows", "Dashboards and integrations"],
+  },
+];
+
 function Index() {
-  const headline = "Your Dedicated Hybrid Tech Team. We Build & Manage".split(" ");
   return (
     <SiteLayout>
-      {/* Hero */}
-      <section className="relative overflow-hidden px-4 pb-14 pt-24 sm:px-6 sm:pt-32 md:pb-24 md:pt-36 lg:px-8">
-        <div className="mx-auto grid w-full max-w-6xl items-center gap-8 md:grid-cols-[1.05fr_0.95fr] md:gap-12">
-          <div>
-            <motion.span
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: EASE }}
-              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/85 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-primary sm:px-4 sm:text-xs"
-            >
-              <Sparkles className="w-3 h-3 text-gold" /> Dedicated Hybrid Tech Partner · Telangana & Gulf
-            </motion.span>
-            <h1 className="mt-4 text-[clamp(2rem,7vw,3.6rem)] font-semibold leading-[1.06] sm:mt-6">
-              {headline.map((word, i) => (
-                <motion.span
-                  key={`${word}-${i}`}
-                  className="inline-block"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.55, delay: 0.08 + i * 0.05, ease: EASE }}
+      <div className="agency-home">
+        <section className="agency-hero" aria-labelledby="agency-hero-title">
+          <div className="agency-container">
+            <div className="agency-hero__topline">
+              <p className="agency-eyebrow"><span className="agency-status-dot" /> Independent digital studio</p>
+              <p className="agency-hero__location">Warangal, India <span aria-hidden="true">·</span> Working across the Gulf</p>
+            </div>
+
+            <div className="agency-hero__grid">
+              <div className="agency-hero__copy">
+                <p className="agency-overline">Strategy · Design · Development</p>
+                <h1 id="agency-hero-title" className="agency-hero__title">
+                  Thoughtful digital work.
+                  <em>Built to move you forward.</em>
+                </h1>
+                <p className="agency-hero__description">
+                  We design and build websites, e-commerce experiences, and digital systems that help growing
+                  businesses show up with confidence and work a little smarter.
+                </p>
+                <div className="agency-hero__actions">
+                  <Link to="/contact" className="agency-button">
+                    Discuss a project <ArrowUpRight aria-hidden="true" size={17} />
+                  </Link>
+                  <Link to="/work" className="agency-text-link">
+                    Explore our work <ArrowRight aria-hidden="true" size={16} />
+                  </Link>
+                </div>
+                <div className="agency-hero__note">
+                  <span className="agency-hero__note-icon"><Check aria-hidden="true" size={15} /></span>
+                  <span>One considered partner from first conversation to launch.</span>
+                </div>
+              </div>
+
+              <div className="agency-hero__visual" aria-label="Selected client work">
+                <a
+                  href="https://dt-interiors.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="agency-hero__image agency-hero__image--main"
+                  aria-label="Explore DT Interiors"
                 >
-                  {word}&nbsp;
-                </motion.span>
-              ))}
-              <motion.span
-                className="gradient-gold-text inline-block"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.65, delay: 0.08 + headline.length * 0.05, ease: EASE }}
-              >
-                Your Complete Online Systems.
-              </motion.span>
-            </h1>
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.45, ease: EASE }}
-              className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:mt-5 sm:text-base"
-            >
-              Need a hybrid technical team who builds custom online systems and manages everything daily? We engineer fast websites with visual editors, custom WhatsApp CRMs, 1-tap digital billing, and mobile dashboards—so you never hire full-time developers or touch code.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.55, ease: EASE }}
-              className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center"
-            >
-              <HoverLift className="w-full sm:w-auto">
-                <Link
-                  to="/contact"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-xs sm:text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] sm:w-auto"
+                  <img
+                    src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1600&auto=format&fit=crop"
+                    alt="Contemporary home architecture with carefully considered materials"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                  <span className="agency-image-caption">
+                    <span><small>SELECTED PROJECT</small><strong>DT Interiors</strong></span>
+                    <ArrowUpRight aria-hidden="true" size={18} />
+                  </span>
+                </a>
+                <a
+                  href="https://safa-foods-xuac.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="agency-hero__image agency-hero__image--detail"
+                  aria-label="Explore SAFA Fresh"
                 >
-                  Free Tech Architecture Audit <ArrowRight className="h-4 w-4" />
-                </Link>
-              </HoverLift>
-              <HoverLift className="w-full sm:w-auto">
-                <Link
-                  to="/services"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card/85 px-6 py-3 text-xs sm:text-sm font-semibold transition-colors hover:bg-muted sm:w-auto"
-                >
-                  Explore Software Suite
-                </Link>
-              </HoverLift>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted-foreground"
-            >
-              {["We Build & Manage Everything", "Live Visual Admin (No Code)", "Custom WhatsApp CRM", "Mobile Cash & BI Tracker", "₹0 Upfront Risk"].map((p) => (
-                <span key={p} className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 shrink-0 text-primary" /> {p}
-                </span>
-              ))}
-            </motion.div>
+                  <img
+                    src="https://safa-foods-xuac.vercel.app/images/hero-ingredients.png"
+                    alt="Fresh ingredients for SAFA Fresh"
+                    decoding="async"
+                  />
+                </a>
+                <div className="agency-hero__visual-label">
+                  <span>ALIF / 001</span>
+                  <span>Websites · Commerce · Systems</span>
+                </div>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <motion.div
-            className="relative mb-8 md:mb-0"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-          >
-            <Parallax distance={22} scale={[1, 1.06]}>
-              <img
-                src={heroArt}
-                alt="Alif Growth Media hybrid technical team systems architecture"
-                width={1200}
-                height={1200}
-                fetchPriority="high"
-                decoding="async"
-                className="aspect-square w-full rounded-[calc(var(--radius)+8px)] object-cover shadow-[var(--shadow-lift)]"
-              />
-            </Parallax>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6, ease: EASE }}
-              className="surface-card absolute -bottom-8 left-2 right-2 p-3.5 sm:-bottom-6 sm:left-4 sm:right-4 sm:p-4 md:-left-6 md:right-8 rounded-xl sm:rounded-2xl border border-border shadow-lg"
-            >
-              <h2 className="text-[0.68rem] sm:text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                What Changes For Your Business
-              </h2>
-              <ul className="mt-2 space-y-1.5 text-xs text-muted-foreground">
-                <li className="flex items-start gap-1.5">
-                  <Check className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
-                  <span>Update your website text, photos & prices instantly without coding.</span>
-                </li>
-                <li className="flex items-start gap-1.5">
-                  <Check className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
-                  <span>Capture & auto-reply to incoming customer WhatsApp leads in seconds.</span>
-                </li>
-                <li className="flex items-start gap-1.5">
-                  <Check className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
-                  <span>Track daily cash collections, web visits & inventory from one mobile screen.</span>
-                </li>
-              </ul>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+        <section className="agency-capabilities" aria-label="Studio capabilities">
+          <div className="agency-container agency-capabilities__inner">
+            <span>Brand & digital strategy</span>
+            <span>Web design & development</span>
+            <span>E-commerce</span>
+            <span>Custom digital systems</span>
+          </div>
+        </section>
 
-      <div className="h-6 md:h-10" />
+        <section className="agency-work" aria-labelledby="agency-work-title">
+          <div className="agency-container">
+            <div className="agency-section-heading">
+              <div>
+                <p className="agency-section-label">Selected work <span>01 / 03</span></p>
+                <h2 id="agency-work-title" className="agency-heading">
+                  Different businesses.
+                  <em>Considered solutions.</em>
+                </h2>
+              </div>
+              <div className="agency-section-heading__aside">
+                <p>
+                  Every project starts with the business behind it. The result should feel right for the brand and
+                  work well for the people using it.
+                </p>
+                <Link to="/work" className="agency-text-link">
+                  View all projects <ArrowRight aria-hidden="true" size={16} />
+                </Link>
+              </div>
+            </div>
 
-      {/* Partner Strip */}
-      <section className="border-y border-border bg-secondary/30 px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 md:flex-row md:justify-between">
-          <Reveal>
-            <p className="text-center text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground sm:text-xs md:text-left">
-              Trusted software & platform partners in Telangana & Gulf
-            </p>
-          </Reveal>
-          <ScrollDrift distance={28}>
-            <Stagger className="grid w-full grid-cols-3 items-end gap-3 sm:gap-8 md:flex md:flex-wrap md:gap-12">
-              {collaborations.map((c, i) => (
-                <StaggerItem key={c.name} lift className="min-w-0">
-                  <div className="flex min-w-0 flex-col items-center gap-1.5">
-                    <img
-                      src={c.logo}
-                      alt={`${c.name} logo`}
-                      loading="lazy"
-                      className={`w-auto max-w-full object-contain opacity-90 transition-opacity hover:opacity-100 ${
-                        i === 1
-                          ? "h-12 sm:h-20 md:h-24 md:max-w-[240px]"
-                          : "h-10 sm:h-16 md:max-w-[200px]"
-                      }`}
-                    />
-                    {i < 2 && (
-                      <span className="w-full truncate text-center text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground sm:text-xs">
-                        {c.name}
-                      </span>
-                    )}
+            <div className="agency-project-grid">
+              {projects.map((project, index) => (
+                <a
+                  className={"agency-project " + project.className}
+                  href={project.href}
+                  key={project.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={"Explore the " + project.name + " project"}
+                >
+                  <div className="agency-project__image">
+                    <img src={project.image} alt={project.imageAlt} loading="lazy" decoding="async" />
+                    <span className="agency-project__number">0{index + 1}</span>
+                    <span className="agency-project__open"><ArrowUpRight aria-hidden="true" size={19} /></span>
                   </div>
-                </StaggerItem>
+                  <div className="agency-project__meta">
+                    <div>
+                      <p className="agency-project__category">{project.category}</p>
+                      <h3>{project.name}</h3>
+                    </div>
+                    <ArrowUpRight className="agency-project__arrow" aria-hidden="true" size={20} />
+                  </div>
+                  <p className="agency-project__description">{project.description}</p>
+                </a>
               ))}
-            </Stagger>
-          </ScrollDrift>
-        </div>
-      </section>
+            </div>
+          </div>
+        </section>
 
-      {/* Hybrid Tech Team Value & Architecture */}
-      <HybridTechTeamBanner />
-
-      {/* Organisations We Help Grow & Mature */}
-      <IndustryMaturityShowcase />
-
-      {/* Interactive Prototypes Simulation Sandbox */}
-      <section className="border-t border-border bg-background px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
-        <div className="mx-auto w-full max-w-6xl">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-8">
-            <Reveal className="max-w-2xl">
-              <span className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-gold sm:text-xs">
-                Live Interactive Sandbox
-              </span>
-              <h2 className="mt-2 text-balance text-[clamp(1.6rem,4.8vw,2.4rem)] font-bold leading-[1.15]">
-                Test our working software before you customize
-              </h2>
-              <p className="mt-2 text-pretty text-xs sm:text-sm leading-relaxed text-muted-foreground">
-                We engineer production-grade systems. Test drive our working tools right here in your browser, then customize them for your brand with ₹0 upfront fee.
+        <section className="agency-services" aria-labelledby="agency-services-title">
+          <div className="agency-container">
+            <div className="agency-section-heading agency-section-heading--services">
+              <div>
+                <p className="agency-section-label">What we do <span>02 / 03</span></p>
+                <h2 id="agency-services-title" className="agency-heading">
+                  The right work.
+                  <em>Done with care.</em>
+                </h2>
+              </div>
+              <p className="agency-services__intro">
+                A focused set of capabilities, brought together around what your business actually needs.
               </p>
-            </Reveal>
-            <Reveal>
-              <Link
-                to="/work"
-                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/90 hover:bg-muted px-4 py-2 text-xs font-semibold text-foreground transition-colors whitespace-nowrap"
-              >
-                View all prototypes & platforms <ArrowRight className="h-3.5 w-3.5" />
+            </div>
+
+            <div className="agency-service-list">
+              {services.map((service) => {
+                const ServiceIcon = service.icon;
+                return (
+                  <article className="agency-service" key={service.number}>
+                    <div className="agency-service__number">{service.number}</div>
+                    <div className="agency-service__icon"><ServiceIcon aria-hidden="true" size={22} strokeWidth={1.6} /></div>
+                    <div className="agency-service__copy">
+                      <h3>{service.title}</h3>
+                      <p>{service.description}</p>
+                    </div>
+                    <div className="agency-service__includes">
+                      {service.items.map((item) => <span key={item}>{item}</span>)}
+                    </div>
+                    <Link to="/services" className="agency-service__link" aria-label={"Explore " + service.title}>
+                      <ArrowUpRight aria-hidden="true" size={20} />
+                    </Link>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="agency-statement" aria-labelledby="agency-statement-title">
+          <div className="agency-container agency-statement__grid">
+            <p className="agency-section-label">A good partner makes the work better</p>
+            <div>
+              <h2 id="agency-statement-title">
+                Good digital work is equal parts <em>clarity, craft, and usefulness.</em>
+              </h2>
+              <p>
+                We bring strategy, design, and engineering into one conversation—so the result looks considered,
+                feels simple to use, and makes sense for the business behind it.
+              </p>
+              <Link to="/about" className="agency-statement__link">
+                Get to know the studio <ArrowRight aria-hidden="true" size={16} />
               </Link>
-            </Reveal>
+            </div>
           </div>
+        </section>
 
-          <InteractiveDemoSuite />
-        </div>
-      </section>
+        <section className="agency-process" aria-labelledby="agency-process-title">
+          <div className="agency-container">
+            <div className="agency-section-heading agency-section-heading--process">
+              <div>
+                <p className="agency-section-label">A straightforward process <span>03 / 03</span></p>
+                <h2 id="agency-process-title" className="agency-heading">
+                  Clear from the start.
+                  <em>Thoughtful all the way through.</em>
+                </h2>
+              </div>
+            </div>
+            <div className="agency-process-grid">
+              <article>
+                <span>01</span>
+                <h3>Understand</h3>
+                <p>We start with your goals, your customers, and what needs to work better.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>Design & build</h3>
+                <p>We shape the experience and build the right solution around the brief.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>Launch & support</h3>
+                <p>We help you launch confidently, understand the system, and plan what comes next.</p>
+              </article>
+            </div>
+          </div>
+        </section>
 
-      {/* Technology Framework */}
-      <div className="gradient-deep text-primary-foreground">
-        <section className="px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
-          <div className="mx-auto w-full max-w-6xl">
-            <Reveal className="max-w-2xl">
-              <span className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-gold sm:text-xs">
-                Technology Framework
-              </span>
-              <h2 className="mt-2 text-balance text-[clamp(1.6rem,4.8vw,2.4rem)] font-semibold leading-[1.15]">
-                Three pillars that turn your business into an automated machine
+        <section className="agency-contact" aria-labelledby="agency-contact-title">
+          <div className="agency-container agency-contact__inner">
+            <div>
+              <p className="agency-section-label">Have a project in mind?</p>
+              <h2 id="agency-contact-title">
+                Let’s make something <em>worth coming back to.</em>
               </h2>
-              <p className="mt-3 text-pretty text-xs sm:text-sm leading-relaxed text-primary-foreground/75">
-                We engineer scalable web architecture, custom WhatsApp CRMs, and mobile executive dashboards so you run smoothly without technical stress.
-              </p>
-            </Reveal>
-            <Stagger className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-              {pillars.map((p) => (
-                <StaggerItem key={p.k} lift>
-                  <div className="h-full rounded-2xl border border-primary-foreground/15 bg-primary-foreground/5 p-5 sm:p-6 transition-colors hover:border-gold/40">
-                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{p.k}</span>
-                    <h3 className="mt-2.5 text-lg font-semibold">{p.t}</h3>
-                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-primary-foreground/75">{p.b}</p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
+              <p>Tell us what you’re building, improving, or figuring out. We’ll start with a useful conversation.</p>
+            </div>
+            <div className="agency-contact__actions">
+              <Link to="/contact" className="agency-button agency-button--light">
+                Start a conversation <ArrowUpRight aria-hidden="true" size={17} />
+              </Link>
+              <a href={company.whatsapp} target="_blank" rel="noopener noreferrer" className="agency-contact__whatsapp">
+                Or message us on WhatsApp <ArrowRight aria-hidden="true" size={15} />
+              </a>
+            </div>
           </div>
         </section>
       </div>
-
-      {/* Software Suite */}
-      <Section
-        eyebrow="Software Suite"
-        title="Custom software built for your business identity"
-        intro="Everything is integrated into one operating ecosystem, powered by Alif Growth Media so you never juggle separate freelance developers or incompatible apps."
-        tone="muted"
-      >
-        <Stagger className="mt-8 grid gap-4 sm:gap-5 md:grid-cols-2">
-          {services.map((s) => (
-            <StaggerItem key={s.slug}>
-              <Link to="/services" hash={s.slug} className="block h-full">
-                <Card title={s.t} body={s.b} />
-              </Link>
-            </StaggerItem>
-          ))}
-        </Stagger>
-        <Reveal>
-          <Link
-            to="/services"
-            className="mt-6 inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-primary transition-all hover:gap-3"
-          >
-            See what each service includes <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Reveal>
-      </Section>
-
-      {/* How it works */}
-      <Section eyebrow="How it works" title="Simple 4-step roadmap with zero technical complexity">
-        <Stagger className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
-          {steps.map((s, i) => (
-            <StaggerItem key={s.t}>
-              <Card index={`0${i + 1}`} title={s.t} body={s.b} />
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </Section>
-
-      {/* Results */}
-      <div className="bg-background/75">
-        <section className="px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
-          <div className="mx-auto w-full max-w-6xl">
-            <Reveal className="max-w-2xl">
-              <span className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-primary sm:text-xs">
-                Real Business Results
-              </span>
-              <h2 className="mt-2 text-balance text-[clamp(1.6rem,4.8vw,2.4rem)] font-semibold leading-[1.15]">
-                Outcomes local owners can measure
-              </h2>
-              <p className="mt-3 text-pretty text-xs sm:text-sm leading-relaxed text-muted-foreground">
-                When systems are simple and automated, your business becomes easier to run and consistently profitable.
-              </p>
-            </Reveal>
-            <Stagger className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-              {results.map((r) => (
-                <StaggerItem key={r.t} lift>
-                  <div className="surface-card h-full p-5 sm:p-6 rounded-2xl border border-border">
-                    <AnimatedStat value={r.s} className="font-display text-2xl sm:text-3xl font-semibold text-primary" />
-                    <h3 className="mt-2 text-sm sm:text-base font-semibold">{r.t}</h3>
-                    <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">{r.b}</p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
-            <Reveal>
-              <Link
-                to="/work"
-                className="mt-6 inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-primary transition-all hover:gap-3"
-              >
-                See our brand partners <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Reveal>
-          </div>
-        </section>
-      </div>
-
-      {/* Testimonial */}
-      <Section eyebrow="Partner Feedback" title="What business owners say" tone="deep">
-        <Reveal className="mx-auto mt-8 max-w-3xl text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.5, ease: EASE }}
-          >
-            <Quote className="mx-auto h-8 w-8 sm:h-10 sm:w-10 text-gold" />
-          </motion.div>
-          <blockquote className="mt-5 text-pretty text-[clamp(1rem,3.2vw,1.4rem)] font-medium leading-relaxed">
-            <MaskedLines
-              delay={0.15}
-              lines={[
-                `"Alif Growth Media helped us turn scattered enquiries`,
-                `into a clear system. Our customers now get faster`,
-                `replies and we can finally see what is working."`,
-              ]}
-            />
-          </blockquote>
-          <footer className="mt-5 text-xs sm:text-sm text-primary-foreground/75">
-            — Partner at a Telangana retail showroom
-          </footer>
-        </Reveal>
-      </Section>
-
-      <CtaBand />
     </SiteLayout>
   );
 }

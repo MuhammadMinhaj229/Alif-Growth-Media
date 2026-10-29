@@ -20,41 +20,24 @@ export function Section({
 }) {
   const toneClass =
     tone === "deep"
-      ? "gradient-deep text-primary-foreground"
+      ? "site-section site-section--deep"
       : tone === "muted"
-        ? "bg-secondary/40"
-        : "bg-background/75";
+        ? "site-section site-section--muted"
+        : "site-section site-section--default";
 
   return (
-    <section
-      id={id}
-      className={`${toneClass} scroll-mt-24 px-5 py-14 sm:px-6 sm:py-20 md:py-28 lg:px-8`}
-    >
-      <div className="mx-auto w-full max-w-6xl">
-        <ScrollLift className="max-w-2xl" distance={18}>
+    <section id={id} className={toneClass + " scroll-mt-24"}>
+      <div className="site-container">
+        <ScrollLift className="site-section__heading" distance={14}>
           {eyebrow && (
             <Reveal>
-              <span
-              className={`text-[0.7rem] font-semibold uppercase tracking-[0.22em] sm:text-xs ${
-                tone === "deep" ? "text-gold" : "text-primary"
-              }`}
-              >
-                {eyebrow}
-              </span>
+              <span className="eyebrow"><span className="eyebrow__dot" /> {eyebrow}</span>
             </Reveal>
           )}
-          <h2 className="mt-3 text-balance text-[clamp(1.55rem,5.2vw,2.6rem)] font-semibold leading-[1.15]">
-            <MaskedText>{title}</MaskedText>
-          </h2>
+          <h2 className="site-section__title"><MaskedText>{title}</MaskedText></h2>
           {intro && (
-            <Reveal delay={0.12}>
-              <p
-              className={`mt-4 text-pretty text-[0.975rem] leading-relaxed sm:text-base ${
-                tone === "deep" ? "text-primary-foreground/75" : "text-muted-foreground"
-              }`}
-              >
-                {intro}
-              </p>
+            <Reveal delay={0.1}>
+              <p className="site-section__intro">{intro}</p>
             </Reveal>
           )}
         </ScrollLift>
@@ -82,28 +65,14 @@ export function Card({
       {...(reduced
         ? {}
         : {
-            whileHover: { y: -6 },
-            transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] as const },
+            whileHover: { y: -3 },
+            transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] as const },
           })}
-      className={
-        tone === "dark"
-          ? "h-full rounded-[var(--radius)] border border-primary-foreground/15 bg-primary-foreground/[0.07] p-5 transition-colors duration-300 hover:border-gold/40 sm:p-6"
-          : "surface-card h-full p-5 transition-[box-shadow,border-color] duration-300 hover:border-gold/40 hover:shadow-[var(--shadow-lift)] sm:p-6"
-      }
+      className={tone === "dark" ? "site-card site-card--dark" : "site-card"}
     >
-      {index && (
-        <span className="mb-4 inline-grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-accent font-display text-sm font-semibold text-accent-foreground">
-          {index}
-        </span>
-      )}
-      <h3 className="text-balance text-base font-semibold sm:text-lg">{title}</h3>
-      <div
-        className={`mt-2 text-pretty text-sm leading-relaxed ${
-          tone === "dark" ? "text-primary-foreground/75" : "text-muted-foreground"
-        }`}
-      >
-        {body}
-      </div>
+      {index && <span className="site-card__index">{index}</span>}
+      <h3>{title}</h3>
+      <div className="site-card__body">{body}</div>
     </Article>
   );
 }
