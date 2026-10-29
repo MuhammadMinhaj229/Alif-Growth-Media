@@ -1,24 +1,26 @@
 import { expect, test } from "@playwright/test";
 
-test("homepage presents the agency message and a clear contact action", async ({ page }) => {
+test("homepage introduces the agency and contact path", async ({ page }) => {
   const response = await page.goto("/");
   const contactCta = page.getByRole("link", { name: /Discuss a project/i });
+  const mainHeading = page.getByRole("heading", { level: 1 });
 
   expect(response?.status()).toBe(200);
   await expect(page).toHaveTitle(/Alif Growth Media/i);
-  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  await expect(mainHeading).toBeVisible();
   await expect(contactCta).toHaveAttribute("href", "/contact");
 });
 
-test("homepage shows real projects and clear service categories", async ({ page }) => {
+test("homepage presents selected client work and service categories", async ({ page }) => {
   await page.goto("/");
+  const heading = (name: string | RegExp) => page.getByRole("heading", { name });
 
-  await expect(page.getByRole("heading", { name: /Considered solutions/i })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "SAFA Fresh" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "DT Interiors" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Sumera Collections" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: /Websites & digital experiences/i })).toBeVisible();
-  await expect(page.getByRole("heading", { name: /Digital systems & automation/i })).toBeVisible();
+  await expect(heading(/Considered solutions/i)).toBeVisible();
+  await expect(heading("SAFA Fresh")).toBeVisible();
+  await expect(heading("DT Interiors")).toBeVisible();
+  await expect(heading("Sumera Collections")).toBeVisible();
+  await expect(heading(/Websites & digital experiences/i)).toBeVisible();
+  await expect(heading(/Digital systems & automation/i)).toBeVisible();
 });
 
 test("key public routes load with a visible page heading", async ({ page }) => {
