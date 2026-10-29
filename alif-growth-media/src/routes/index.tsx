@@ -1,27 +1,13 @@
-import { useState, type CSSProperties } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Check,
-  ChevronRight,
-  LayoutDashboard,
-  MessageCircle,
-  PanelsTopLeft,
-  ShieldCheck,
-  Sparkles,
-  TrendingUp,
-  Workflow,
-} from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { ArrowRight, ArrowUpRight, Check, Layers3, MonitorSmartphone, ShoppingBag, Workflow } from "lucide-react";
 
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { company, collaborations, services } from "@/content/site";
+import { company } from "@/content/site";
 import "@/experience-home.css";
 
-const title = "Alif Growth Media | Digital Experiences That Move Business Forward";
+const title = "Alif Growth Media | Thoughtful Digital Experiences";
 const description =
-  "Alif Growth Media creates standout websites, customer enquiry systems, WhatsApp workflows and practical business software for growing businesses in India and the Gulf.";
+  "Alif Growth Media designs and builds considered websites, e-commerce experiences and practical digital systems for growing businesses across India and the Gulf.";
 const canonical = "https://alif-growth.netlify.app/";
 
 export const Route = createFileRoute("/")({
@@ -64,481 +50,307 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-type PreviewMode = "website" | "customers" | "operations";
-type SolutionMode = "attract" | "convert" | "operate";
-
-const previewTabs: { id: PreviewMode; label: string; icon: typeof PanelsTopLeft }[] = [
-  { id: "website", label: "Website", icon: PanelsTopLeft },
-  { id: "customers", label: "Customers", icon: MessageCircle },
-  { id: "operations", label: "Operations", icon: LayoutDashboard },
+const projects = [
+  {
+    name: "SAFA Fresh",
+    category: "E-commerce · Retail",
+    description: "A welcoming digital storefront for fresh food and everyday essentials.",
+    image: "https://safa-foods-xuac.vercel.app/images/hero-ingredients.png",
+    imageAlt: "Fresh ingredients photographed for SAFA Fresh",
+    href: "https://safa-foods-xuac.vercel.app/",
+    className: "agency-project--wide",
+  },
+  {
+    name: "DT Interiors",
+    category: "Brand website · Interiors",
+    description: "A considered online presence for a home interiors and design studio.",
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1600&auto=format&fit=crop",
+    imageAlt: "Warm, contemporary residential architecture",
+    href: "https://dt-interiors.vercel.app/",
+    className: "",
+  },
+  {
+    name: "Sumera Collections",
+    category: "E-commerce · Fashion",
+    description: "A product-led shopping experience for contemporary ethnic wear.",
+    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Fashion editorial image used for the Sumera Collections storefront",
+    href: "https://sumeeracollections.vercel.app/",
+    className: "",
+  },
 ];
 
-const solutionTracks: {
-  id: SolutionMode;
-  number: string;
-  title: string;
-  sub: string;
-  label: string;
-  headline: string;
-  description: string;
-  features: string[];
-  slug: string;
-  icon: typeof PanelsTopLeft;
-}[] = [
+const services = [
   {
-    id: "attract",
     number: "01",
-    title: "Attract customers",
-    sub: "A first impression people remember",
-    label: "WEBSITE + DIGITAL PRESENCE",
-    headline: "Give people a better reason to choose you.",
+    icon: MonitorSmartphone,
+    title: "Websites & digital experiences",
     description:
-      "A clear, distinctive digital presence that explains what you offer, builds confidence, and makes it easy for the right customers to take the next step.",
-    features: ["Websites & storefronts", "Editable content", "Mobile-first experience"],
-    slug: services[0].slug,
-    icon: PanelsTopLeft,
+      "Clear, distinctive websites that introduce your business, communicate your value, and help people take the next step.",
+    items: ["Business websites", "Landing pages", "Content-managed websites"],
   },
   {
-    id: "convert",
     number: "02",
-    title: "Convert enquiries",
-    sub: "Turn interest into a clear next step",
-    label: "CUSTOMER JOURNEYS + WHATSAPP",
-    headline: "Make every enquiry easier to follow up.",
+    icon: ShoppingBag,
+    title: "E-commerce & customer journeys",
     description:
-      "Bring customer conversations into a more organised workflow, so enquiries don't disappear across personal phones, social messages, and forms.",
-    features: ["WhatsApp workflows", "Lead organisation", "Follow-up reminders"],
-    slug: services[1].slug,
-    icon: MessageCircle,
+      "Thoughtful storefronts and customer journeys that make it easier to discover products, enquire, and buy.",
+    items: ["Online stores", "Product catalogues", "Enquiry and ordering flows"],
   },
   {
-    id: "operate",
     number: "03",
-    title: "Run the business",
-    sub: "Less scattered work. More visibility.",
-    label: "BUSINESS SOFTWARE + DASHBOARDS",
-    headline: "Know what's happening without chasing updates.",
+    icon: Workflow,
+    title: "Digital systems & automation",
     description:
-      "Practical tools for billing, stock, daily collections, and owner-level visibility—designed around the way your team already works.",
-    features: ["Billing & inventory", "Daily business overview", "Owner dashboards"],
-    slug: services[2].slug,
-    icon: LayoutDashboard,
+      "Practical tools that bring everyday work into better order, from follow-ups and operations to reporting.",
+    items: ["Business portals", "WhatsApp workflows", "Dashboards and integrations"],
   },
 ];
 
 function Index() {
-  const [previewMode, setPreviewMode] = useState<PreviewMode>("website");
-  const [solutionMode, setSolutionMode] = useState<SolutionMode>("attract");
-  const activeSolution = solutionTracks.find((item) => item.id === solutionMode) ?? solutionTracks[0];
-  const ActiveSolutionIcon = activeSolution.icon;
-
   return (
     <SiteLayout>
-      <div className="ah-home">
-        <section className="ah-hero" aria-labelledby="ah-hero-title">
-          <div className="ah-container">
-            <div className="ah-hero-top">
-              <p className="ah-eyebrow"><span className="ah-eyebrow-dot" /> Independent digital studio</p>
-              <p className="ah-hero-location">Warangal, India <span aria-hidden="true">·</span> Working across the Gulf</p>
+      <div className="agency-home">
+        <section className="agency-hero" aria-labelledby="agency-hero-title">
+          <div className="agency-container">
+            <div className="agency-hero__topline">
+              <p className="agency-eyebrow"><span className="agency-status-dot" /> Independent digital studio</p>
+              <p className="agency-hero__location">Warangal, India <span aria-hidden="true">·</span> Working across the Gulf</p>
             </div>
 
-            <div className="ah-hero-grid">
-              <div className="ah-hero-copy">
-                <p className="ah-eyebrow">Strategy / Design / Systems</p>
-                <h1 id="ah-hero-title" className="ah-hero-title">
-                  <span>Make your</span>
-                  <span>business easier</span>
-                  <span className="ah-title-italic">to choose.</span>
+            <div className="agency-hero__grid">
+              <div className="agency-hero__copy">
+                <p className="agency-overline">Strategy · Design · Development</p>
+                <h1 id="agency-hero-title" className="agency-hero__title">
+                  Thoughtful digital work.
+                  <em>Built to move you forward.</em>
                 </h1>
-                <p className="ah-hero-description">
-                  We build standout websites and connected business tools that help you attract customers, follow up
-                  with confidence, and run day-to-day operations with less friction.
+                <p className="agency-hero__description">
+                  We design and build websites, e-commerce experiences, and digital systems that help growing
+                  businesses show up with confidence and work a little smarter.
                 </p>
-                <div className="ah-hero-actions">
-                  <Link to="/contact" className="ah-button">
-                    Tell us what you need <ArrowUpRight aria-hidden="true" size={17} />
+                <div className="agency-hero__actions">
+                  <Link to="/contact" className="agency-button">
+                    Discuss a project <ArrowUpRight aria-hidden="true" size={17} />
                   </Link>
-                  <Link to="/work" className="ah-link">
-                    Explore selected work <ArrowRight aria-hidden="true" size={16} />
+                  <Link to="/work" className="agency-text-link">
+                    Explore our work <ArrowRight aria-hidden="true" size={16} />
                   </Link>
                 </div>
-                <div className="ah-hero-proof">
-                  <span className="ah-proof-mark"><Check aria-hidden="true" size={15} /></span>
-                  <span><strong>Designed around your workflow.</strong><br />Not another off-the-shelf setup.</span>
+                <div className="agency-hero__note">
+                  <span className="agency-hero__note-icon"><Check aria-hidden="true" size={15} /></span>
+                  <span>One considered partner from first conversation to launch.</span>
                 </div>
               </div>
 
-              <div className="ah-stage-wrap">
-                <div className="ah-stage-glow" aria-hidden="true" />
-                <div className="ah-stage" aria-label="Interactive preview of digital business experiences">
-                  <div className="ah-stage-topbar">
-                    <span className="ah-browser-dots" aria-hidden="true"><i /><i /><i /></span>
-                    <span className="ah-stage-site">preview.alif.studio / experience</span>
-                    <span className="ah-live-pill">Explore</span>
-                  </div>
-                  <div className="ah-stage-tabs" role="tablist" aria-label="Preview different business tools">
-                    {previewTabs.map((tab) => {
-                      const TabIcon = tab.icon;
-                      return (
-                        <button
-                          key={tab.id}
-                          type="button"
-                          className="ah-stage-tab"
-                          role="tab"
-                          aria-selected={previewMode === tab.id}
-                          aria-pressed={previewMode === tab.id}
-                          onClick={() => setPreviewMode(tab.id)}
-                        >
-                          <TabIcon aria-hidden="true" size={14} />
-                          {tab.label}
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  <AnimatePresence mode="wait" initial={false}>
-                    <motion.div
-                      key={previewMode}
-                      className="ah-stage-content"
-                      role="tabpanel"
-                      initial={{ opacity: 0, y: 7 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -5 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                    >
-                      {previewMode === "website" && <WebsitePreview />}
-                      {previewMode === "customers" && <CustomerPreview />}
-                      {previewMode === "operations" && <OperationsPreview />}
-                    </motion.div>
-                  </AnimatePresence>
-
-                  <div className="ah-stage-caption">
-                    <span>Illustrative interface preview</span>
-                    <strong>Made to work together ↗</strong>
-                  </div>
-                </div>
-                <div className="ah-stage-float">
-                  <span className="ah-stage-float-icon"><Sparkles aria-hidden="true" size={15} /></span>
-                  <span><b>One connected experience</b><small>From the first click to daily operations</small></span>
+              <div className="agency-hero__visual" aria-label="Selected client work">
+                <a
+                  href="https://dt-interiors.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="agency-hero__image agency-hero__image--main"
+                  aria-label="Explore DT Interiors"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1600&auto=format&fit=crop"
+                    alt="Contemporary home architecture with carefully considered materials"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                  <span className="agency-image-caption">
+                    <span><small>SELECTED PROJECT</small><strong>DT Interiors</strong></span>
+                    <ArrowUpRight aria-hidden="true" size={18} />
+                  </span>
+                </a>
+                <a
+                  href="https://safa-foods-xuac.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="agency-hero__image agency-hero__image--detail"
+                  aria-label="Explore SAFA Fresh"
+                >
+                  <img
+                    src="https://safa-foods-xuac.vercel.app/images/hero-ingredients.png"
+                    alt="Fresh ingredients for SAFA Fresh"
+                    decoding="async"
+                  />
+                </a>
+                <div className="agency-hero__visual-label">
+                  <span>ALIF / 001</span>
+                  <span>Websites · Commerce · Systems</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <div className="ah-capability-band" aria-label="Alif capabilities">
-          <div className="ah-capability-track" aria-hidden="true">
-            {Array.from({ length: 2 }, (_, repeat) => (
-              <span key={repeat}>
-                <span>Websites with a purpose</span>
-                <span>Customer journeys</span>
-                <span>WhatsApp workflows</span>
-                <span>Business software</span>
-                <span>Owner-first dashboards</span>
-                <span>Designed to work together</span>
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <section className="ah-value" aria-labelledby="ah-value-title">
-          <div className="ah-container">
-            <div className="ah-value-header">
-              <div>
-                <p className="ah-section-kicker">A better way to grow / 01</p>
-                <h2 id="ah-value-title" className="ah-display">
-                  One business.
-                  <br />
-                  <em>Three ways forward.</em>
-                </h2>
-              </div>
-              <p className="ah-body">
-                You don't need to start with a complicated technology plan. Start with the part of the business you
-                want to improve. We'll help shape the right solution around it.
-              </p>
-            </div>
-
-            <div className="ah-value-layout">
-              <div className="ah-value-nav" role="group" aria-label="Choose a business goal">
-                {solutionTracks.map((track) => (
-                  <button
-                    type="button"
-                    key={track.id}
-                    className="ah-value-option"
-                    aria-pressed={solutionMode === track.id}
-                    onClick={() => setSolutionMode(track.id)}
-                  >
-                    <span className="ah-value-option-number">{track.number}</span>
-                    <span>
-                      <span className="ah-value-option-title">{track.title}</span>
-                      <span className="ah-value-option-sub">{track.sub}</span>
-                    </span>
-                    <ChevronRight className="ah-value-option-chevron" aria-hidden="true" size={17} />
-                  </button>
-                ))}
-              </div>
-
-              <div className="ah-value-panel" aria-live="polite">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={activeSolution.id}
-                    initial={{ opacity: 0, y: 9 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                  >
-                    <div className="ah-value-panel-head">
-                      <p className="ah-section-kicker">{activeSolution.label}</p>
-                      <span className="ah-value-icon"><ActiveSolutionIcon aria-hidden="true" size={21} /></span>
-                    </div>
-                    <h3>{activeSolution.headline}</h3>
-                    <p>{activeSolution.description}</p>
-                    <div className="ah-value-panel-footer">
-                      <div className="ah-value-bullets">
-                        {activeSolution.features.map((feature) => <span key={feature}>{feature}</span>)}
-                      </div>
-                      <Link to="/services" hash={activeSolution.slug} className="ah-button ah-button--light">
-                        Explore this solution <ArrowUpRight aria-hidden="true" size={16} />
-                      </Link>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
+        <section className="agency-capabilities" aria-label="Studio capabilities">
+          <div className="agency-container agency-capabilities__inner">
+            <span>Brand & digital strategy</span>
+            <span>Web design & development</span>
+            <span>E-commerce</span>
+            <span>Custom digital systems</span>
           </div>
         </section>
 
-        <section className="ah-work" aria-labelledby="ah-work-title">
-          <div className="ah-container">
-            <div className="ah-work-header">
+        <section className="agency-work" aria-labelledby="agency-work-title">
+          <div className="agency-container">
+            <div className="agency-section-heading">
               <div>
-                <p className="ah-section-kicker">Selected work / 02</p>
-                <h2 id="ah-work-title" className="ah-display">
-                  Built for real
-                  <br />
-                  <em>businesses.</em>
+                <p className="agency-section-label">Selected work <span>01 / 03</span></p>
+                <h2 id="agency-work-title" className="agency-heading">
+                  Different businesses.
+                  <em>Considered solutions.</em>
                 </h2>
               </div>
-              <div>
-                <p className="ah-body">
-                  Different industries need different answers. Explore a few digital experiences built for the way
-                  their customers browse, decide, and buy.
+              <div className="agency-section-heading__aside">
+                <p>
+                  Every project starts with the business behind it. The result should feel right for the brand and
+                  work well for the people using it.
                 </p>
-                <Link to="/work" className="ah-link" style={{ marginTop: 18 }}>
-                  View the full portfolio <ArrowRight aria-hidden="true" size={16} />
+                <Link to="/work" className="agency-text-link">
+                  View all projects <ArrowRight aria-hidden="true" size={16} />
                 </Link>
               </div>
             </div>
 
-            <div className="ah-work-grid">
-              {collaborations.map((client, index) => (
+            <div className="agency-project-grid">
+              {projects.map((project, index) => (
                 <a
-                  key={client.name}
-                  href={client.href}
+                  className={"agency-project " + project.className}
+                  href={project.href}
+                  key={project.name}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="ah-work-card"
-                  aria-label={"Explore the " + client.name + " project in a new tab"}
+                  aria-label={"Explore the " + project.name + " project"}
                 >
-                  <div className="ah-work-art">
-                    <span className="ah-work-art-index">0{index + 1} <span aria-hidden="true">/</span> PROJECT</span>
-                    <img src={client.logo} alt={client.name + " project visual"} loading="lazy" />
-                    <span className="ah-work-open"><ArrowUpRight aria-hidden="true" size={19} /></span>
+                  <div className="agency-project__image">
+                    <img src={project.image} alt={project.imageAlt} loading="lazy" decoding="async" />
+                    <span className="agency-project__number">0{index + 1}</span>
+                    <span className="agency-project__open"><ArrowUpRight aria-hidden="true" size={19} /></span>
                   </div>
-                  <div className="ah-work-meta">
+                  <div className="agency-project__meta">
                     <div>
-                      <p className="ah-work-industry">{client.industry}</p>
-                      <h3 className="ah-work-name">{client.name}</h3>
-                      <p className="ah-work-scope">{client.desc}</p>
+                      <p className="agency-project__category">{project.category}</p>
+                      <h3>{project.name}</h3>
                     </div>
-                    <ArrowUpRight className="ah-work-arrow" aria-hidden="true" size={21} />
+                    <ArrowUpRight className="agency-project__arrow" aria-hidden="true" size={20} />
                   </div>
+                  <p className="agency-project__description">{project.description}</p>
                 </a>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="ah-journey" aria-labelledby="ah-journey-title">
-          <div className="ah-container ah-journey-grid">
-            <div className="ah-journey-copy">
-              <p className="ah-section-kicker">The whole picture / 03</p>
-              <h2 id="ah-journey-title" className="ah-display">
-                Don't just go digital.
-                <br />
-                <em>Connect the dots.</em>
-              </h2>
-              <p className="ah-body">
-                Your website, customer conversations, and daily operations shouldn't feel like separate businesses.
-                We design how those pieces work together—so the experience is clearer for customers and simpler for you.
-              </p>
-              <Link to="/services" className="ah-link" style={{ marginTop: 25 }}>
-                See how the pieces connect <ArrowRight aria-hidden="true" size={16} />
-              </Link>
-            </div>
-
-            <div className="ah-journey-steps">
-              {[
-                { title: "Attract", text: "A clear online presence helps the right people find you and understand your offer." },
-                { title: "Capture", text: "Give customers a simple way to ask questions, make enquiries, or start an order." },
-                { title: "Follow up", text: "Keep conversations organised so your team knows what needs attention next." },
-                { title: "Understand", text: "Bring key information like billing, stock, and daily activity into view." },
-              ].map((step, index) => (
-                <div key={step.title} className="ah-journey-step">
-                  <span className="ah-journey-number">0{index + 1}</span>
-                  <div>
-                    <h3>{step.title}</h3>
-                    <p>{step.text}</p>
-                  </div>
-                  <ArrowUpRight className="ah-journey-arrow" aria-hidden="true" size={18} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="ah-principles" aria-labelledby="ah-principles-title">
-          <div className="ah-container">
-            <div className="ah-principles-head">
+        <section className="agency-services" aria-labelledby="agency-services-title">
+          <div className="agency-container">
+            <div className="agency-section-heading agency-section-heading--services">
               <div>
-                <p className="ah-section-kicker">How we work / 04</p>
-                <h2 id="ah-principles-title" className="ah-display">
-                  Good technology.
-                  <br />
-                  <em>Less unnecessary friction.</em>
+                <p className="agency-section-label">What we do <span>02 / 03</span></p>
+                <h2 id="agency-services-title" className="agency-heading">
+                  The right work.
+                  <em>Done with care.</em>
                 </h2>
               </div>
-              <Link to="/about" className="ah-link">
-                Meet the studio <ArrowRight aria-hidden="true" size={16} />
+              <p className="agency-services__intro">
+                A focused set of capabilities, brought together around what your business actually needs.
+              </p>
+            </div>
+
+            <div className="agency-service-list">
+              {services.map((service) => {
+                const ServiceIcon = service.icon;
+                return (
+                  <article className="agency-service" key={service.number}>
+                    <div className="agency-service__number">{service.number}</div>
+                    <div className="agency-service__icon"><ServiceIcon aria-hidden="true" size={22} strokeWidth={1.6} /></div>
+                    <div className="agency-service__copy">
+                      <h3>{service.title}</h3>
+                      <p>{service.description}</p>
+                    </div>
+                    <div className="agency-service__includes">
+                      {service.items.map((item) => <span key={item}>{item}</span>)}
+                    </div>
+                    <Link to="/services" className="agency-service__link" aria-label={"Explore " + service.title}>
+                      <ArrowUpRight aria-hidden="true" size={20} />
+                    </Link>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="agency-statement" aria-labelledby="agency-statement-title">
+          <div className="agency-container agency-statement__grid">
+            <p className="agency-section-label">A good partner makes the work better</p>
+            <div>
+              <h2 id="agency-statement-title">
+                Good digital work is equal parts <em>clarity, craft, and usefulness.</em>
+              </h2>
+              <p>
+                We bring strategy, design, and engineering into one conversation—so the result looks considered,
+                feels simple to use, and makes sense for the business behind it.
+              </p>
+              <Link to="/about" className="agency-statement__link">
+                Get to know the studio <ArrowRight aria-hidden="true" size={16} />
               </Link>
             </div>
-            <div className="ah-principles-grid">
-              <article className="ah-principle">
-                <span className="ah-principle-icon"><Workflow aria-hidden="true" size={20} /></span>
-                <h3>Made around your workflow</h3>
-                <p>We start with how the business actually operates, then shape the digital experience around real needs.</p>
+          </div>
+        </section>
+
+        <section className="agency-process" aria-labelledby="agency-process-title">
+          <div className="agency-container">
+            <div className="agency-section-heading agency-section-heading--process">
+              <div>
+                <p className="agency-section-label">A straightforward process <span>03 / 03</span></p>
+                <h2 id="agency-process-title" className="agency-heading">
+                  Clear from the start.
+                  <em>Thoughtful all the way through.</em>
+                </h2>
+              </div>
+            </div>
+            <div className="agency-process-grid">
+              <article>
+                <span>01</span>
+                <h3>Understand</h3>
+                <p>We start with your goals, your customers, and what needs to work better.</p>
               </article>
-              <article className="ah-principle">
-                <span className="ah-principle-icon"><ShieldCheck aria-hidden="true" size={20} /></span>
-                <h3>Ownership from day one</h3>
-                <p>Clear scope, planned handover, and practical control are part of the build—not an afterthought.</p>
+              <article>
+                <span>02</span>
+                <h3>Design & build</h3>
+                <p>We shape the experience and build the right solution around the brief.</p>
               </article>
-              <article className="ah-principle">
-                <span className="ah-principle-icon"><TrendingUp aria-hidden="true" size={20} /></span>
-                <h3>Built to grow with you</h3>
-                <p>Thoughtful foundations make it easier to improve the experience as your customers and operations change.</p>
+              <article>
+                <span>03</span>
+                <h3>Launch & support</h3>
+                <p>We help you launch confidently, understand the system, and plan what comes next.</p>
               </article>
             </div>
           </div>
         </section>
 
-        <section className="ah-closing" aria-labelledby="ah-closing-title">
-          <div className="ah-container ah-closing-grid">
+        <section className="agency-contact" aria-labelledby="agency-contact-title">
+          <div className="agency-container agency-contact__inner">
             <div>
-              <p className="ah-section-kicker">Your next step / 05</p>
-              <h2 id="ah-closing-title" className="ah-closing-title">
-                Let's make
-                <br />
-                something <em>work better.</em>
+              <p className="agency-section-label">Have a project in mind?</p>
+              <h2 id="agency-contact-title">
+                Let’s make something <em>worth coming back to.</em>
               </h2>
-              <p className="ah-closing-copy">
-                Tell us where things feel harder than they should. We'll help you find a sensible next step—whether
-                that's a website, a workflow, or a better connected system.
-              </p>
+              <p>Tell us what you’re building, improving, or figuring out. We’ll start with a useful conversation.</p>
             </div>
-            <div className="ah-closing-actions">
-              <Link to="/contact" className="ah-button">
+            <div className="agency-contact__actions">
+              <Link to="/contact" className="agency-button agency-button--light">
                 Start a conversation <ArrowUpRight aria-hidden="true" size={17} />
               </Link>
-              <a href={company.whatsapp} target="_blank" rel="noopener noreferrer" className="ah-button ah-button--outline">
-                <MessageCircle aria-hidden="true" size={16} /> Chat on WhatsApp
+              <a href={company.whatsapp} target="_blank" rel="noopener noreferrer" className="agency-contact__whatsapp">
+                Or message us on WhatsApp <ArrowRight aria-hidden="true" size={15} />
               </a>
-              <small>Plain-language advice. Clear next steps. No pressure to proceed.</small>
             </div>
           </div>
         </section>
       </div>
     </SiteLayout>
-  );
-}
-
-function WebsitePreview() {
-  return (
-    <div aria-label="Illustrative website storefront interface">
-      <div className="ah-web-masthead">
-        <span className="ah-web-brand"><span className="ah-web-brand-mark">S</span> SAFA / FRESH</span>
-        <span className="ah-web-nav"><span>Shop</span><span>Our story</span><span>⌕</span></span>
-      </div>
-      <div className="ah-web-hero">
-        <div className="ah-web-hero-copy">
-          <p className="ah-ui-muted" style={{ margin: "0 0 8px", textTransform: "uppercase", letterSpacing: ".12em", fontWeight: 800 }}>Fresh, from the source</p>
-          <h3 className="ah-ui-heading">Good food.<br />A better day.</h3>
-          <p className="ah-ui-muted">Thoughtfully picked favourites, delivered with care.</p>
-          <span className="ah-mini-cta">Explore the collection <ArrowUpRight aria-hidden="true" size={10} /></span>
-        </div>
-        <div className="ah-produce-art" aria-hidden="true"><i className="ah-produce-orb" /><i className="ah-produce-orb" /><i className="ah-produce-orb" /></div>
-      </div>
-      <div className="ah-web-foot">
-        <span>Made for mobile, built for growth</span>
-        <span className="ah-web-product-dots" aria-hidden="true"><i /><i /><i /></span>
-      </div>
-    </div>
-  );
-}
-
-function CustomerPreview() {
-  return (
-    <div aria-label="Illustrative customer enquiry management interface">
-      <div className="ah-crm-head">
-        <div><p className="ah-ui-muted" style={{ margin: "0 0 6px", textTransform: "uppercase", letterSpacing: ".11em", fontWeight: 800 }}>Customer hub</p><h3 className="ah-ui-heading">Every chat has a next step.</h3></div>
-        <span className="ah-crm-count">3 new</span>
-      </div>
-      <div className="ah-crm-layout">
-        <div className="ah-crm-list">
-          <div className="ah-crm-list-title">Recent enquiries</div>
-          <div className="ah-contact-row"><span className="ah-avatar">AS</span><span><b className="ah-contact-name">Ayesha S.</b><small className="ah-contact-note">Product enquiry</small></span></div>
-          <div className="ah-contact-row"><span className="ah-avatar" style={{ background: "#f1e0c5", color: "#855c2e" }}>RK</span><span><b className="ah-contact-name">Rahul K.</b><small className="ah-contact-note">Asked for a quote</small></span></div>
-          <div className="ah-contact-row"><span className="ah-avatar" style={{ background: "#dfe5ef", color: "#4a5b80" }}>FM</span><span><b className="ah-contact-name">Farhan M.</b><small className="ah-contact-note">Follow-up due</small></span></div>
-        </div>
-        <div className="ah-crm-conversation">
-          <div className="ah-conversation-head"><span className="ah-avatar">AS</span><b>Ayesha S. <span style={{ color: "#728070", fontWeight: 500 }}>· New lead</span></b></div>
-          <div className="ah-message">Hi, can I know the available options and price?</div>
-          <div className="ah-message ah-message--sent">Of course. Here's the current catalogue. Anything specific you're looking for?</div>
-          <div className="ah-reply-bar">Write a reply… <span style={{ float: "right" }}>↗</span></div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function OperationsPreview() {
-  const values = [
-    { label: "Today's sales", value: "₹42.5k", delta: "Daily overview" },
-    { label: "Open invoices", value: "08", delta: "Needs attention" },
-    { label: "Stock alerts", value: "03", delta: "Low inventory" },
-  ];
-  const heights = ["22%", "38%", "31%", "57%", "46%", "66%", "52%", "88%", "71%", "100%", "79%", "91%"];
-  return (
-    <div aria-label="Illustrative business operations dashboard interface">
-      <div className="ah-ops-top">
-        <div><p className="ah-ui-muted" style={{ margin: "0 0 6px", textTransform: "uppercase", letterSpacing: ".11em", fontWeight: 800 }}>Owner overview</p><h3 className="ah-ui-heading">Your business, at a glance.</h3></div>
-        <span className="ah-period">This week⌄</span>
-      </div>
-      <div className="ah-metric-grid">
-        {values.map((item) => (
-          <div className="ah-metric" key={item.label}>
-            <span className="ah-metric-label">{item.label}</span>
-            <strong className="ah-metric-value">{item.value}</strong>
-            <span className="ah-metric-delta">{item.delta}</span>
-          </div>
-        ))}
-      </div>
-      <div className="ah-chart" aria-label="Illustrative weekly activity chart">
-        {heights.map((height, index) => <span key={index} className="ah-chart-column"><i style={{ "--height": height } as CSSProperties} /></span>)}
-      </div>
-      <div className="ah-stage-caption" style={{ paddingInline: 0 }}>
-        <span>Illustrative weekly activity</span><strong>One place to check ↗</strong>
-      </div>
-    </div>
   );
 }
