@@ -2,36 +2,32 @@ import { expect, test } from "@playwright/test";
 
 test("homepage renders its main heading and primary call to action", async ({ page }) => {
   const response = await page.goto("/");
+  const contactCta = page.getByRole("link", { name: /Tell us what you need/i });
 
   expect(response?.status()).toBe(200);
   await expect(page).toHaveTitle(/Alif Growth Media/i);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  await expect(
-    page.getByRole("link", { name: /Tell us what you need/i }),
-  ).toHaveAttribute("href", "/contact");
+  await expect(contactCta).toHaveAttribute("href", "/contact");
 });
 
 test("homepage preview and solution selector update their content", async ({ page }) => {
   await page.goto("/");
+  const heading = (name: RegExp) => page.getByRole("heading", { name });
 
   await page.getByRole("tab", { name: "Customers" }).click();
-  await expect(page.getByRole("heading", { name: /Every chat has a next step/i })).toBeVisible();
+  await expect(heading(/Every chat has a next step/i)).toBeVisible();
 
   await page.getByRole("tab", { name: "Operations" }).click();
-  await expect(page.getByRole("heading", { name: /Your business, at a glance/i })).toBeVisible();
+  await expect(heading(/Your business, at a glance/i)).toBeVisible();
 
   await page.getByRole("tab", { name: "Website" }).click();
-  await expect(page.getByRole("heading", { name: /Good food/i })).toBeVisible();
+  await expect(heading(/Good food/i)).toBeVisible();
 
   await page.getByRole("button", { name: /Convert enquiries/i }).click();
-  await expect(
-    page.getByRole("heading", { name: /Make every enquiry easier to follow up/i }),
-  ).toBeVisible();
+  await expect(heading(/Make every enquiry easier to follow up/i)).toBeVisible();
 
   await page.getByRole("button", { name: /Run the business/i }).click();
-  await expect(
-    page.getByRole("heading", { name: /Know what's happening without chasing updates/i }),
-  ).toBeVisible();
+  await expect(heading(/Know what's happening without chasing updates/i)).toBeVisible();
 });
 
 test("key public routes load with a visible page heading", async ({ page }) => {
