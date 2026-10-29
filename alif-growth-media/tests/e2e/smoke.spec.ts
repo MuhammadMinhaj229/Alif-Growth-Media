@@ -15,14 +15,10 @@ test("homepage preview and solution selector update their content", async ({ pag
   await page.goto("/");
 
   await page.getByRole("tab", { name: "Customers" }).click();
-  await expect(
-    page.getByRole("heading", { name: /Every chat has a next step/i }),
-  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Every chat has a next step/i })).toBeVisible();
 
   await page.getByRole("tab", { name: "Operations" }).click();
-  await expect(
-    page.getByRole("heading", { name: /Your business, at a glance/i }),
-  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Your business, at a glance/i })).toBeVisible();
 
   await page.getByRole("tab", { name: "Website" }).click();
   await expect(page.getByRole("heading", { name: /Good food/i })).toBeVisible();
