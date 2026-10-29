@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   quality:
-    name: Lint, typecheck, Netlify build and browser tests
+    name: Lint, format, typecheck, Netlify build and browser tests
     runs-on: ubuntu-latest
     timeout-minutes: 25
     defaults:
@@ -37,8 +37,11 @@ jobs:
       - name: Install locked dependencies
         run: npm ci
 
-      - name: Lint
-        run: npm run lint
+      - name: Lint (preserve existing formatting baseline)
+        run: npm run lint:ci
+
+      - name: Check formatting for new Playwright files
+        run: npm run format:check
 
       - name: Type-check application
         run: npm run typecheck
