@@ -1,8 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("homepage renders its main heading and primary call to action", async ({
-  page,
-}) => {
+test("homepage renders its main heading and primary call to action", async ({ page }) => {
   const response = await page.goto("/");
 
   expect(response?.status()).toBe(200);
