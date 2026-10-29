@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  ArrowDown,
   ArrowRight,
   ArrowUpRight,
   Check,
@@ -535,7 +534,7 @@ function OperationsPreview() {
         ))}
       </div>
       <div className="ah-chart" aria-label="Illustrative weekly activity chart">
-        {heights.map((height, index) => <span key={index} className="ah-chart-column"><i style={{ "--height": height } as React.CSSProperties} /></span>)}
+        {heights.map((height, index) => <span key={index} className="ah-chart-column"><i style={{ "--height": height } as CSSProperties} /></span>)}
       </div>
       <div className="ah-stage-caption" style={{ paddingInline: 0 }}>
         <span>Illustrative weekly activity</span><strong>One place to check ↗</strong>
