@@ -12,7 +12,9 @@
     "format": "prettier --write .",
     "postbuild": "node -e \"const fs = require('fs'); if (fs.existsSync('.vercel/output/static') && !fs.existsSync('dist')) { fs.cpSync('.vercel/output/static', 'dist', { recursive: true }); }\"",
     "typecheck": "tsc --noEmit --types vite/client,node",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "lint:ci": "eslint . --rule \"prettier/prettier: off\"",
+    "format:check": "prettier --check playwright.config.ts tests/e2e/smoke.spec.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
