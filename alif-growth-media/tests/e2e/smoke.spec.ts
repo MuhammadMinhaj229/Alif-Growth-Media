@@ -32,8 +32,10 @@ test("mobile navigation opens, follows a route, and closes", async ({ page }) =>
   const mobileNav = page.getByRole("navigation", { name: "Mobile primary" });
   await expect(mobileNav).toBeVisible();
   await mobileNav.getByRole("link", { name: "Work" }).click();
-  await expect(page).toHaveURL(/\/work$/);
-  await expect(page.getByRole("button", { name: "Open navigation menu" })).toHaveAttribute("aria-expanded", "false");
+  await expect(page).toHaveURL(/\\/work$/);
+  await expect(
+    page.getByRole("button", { name: "Open navigation menu" }),
+  ).toHaveAttribute("aria-expanded", "false");
 });
 
 test("homepage fits a narrow mobile viewport without horizontal overflow", async ({ page }) => {
