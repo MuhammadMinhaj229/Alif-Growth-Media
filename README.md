@@ -117,3 +117,7 @@ The repository includes dedicated `netlify.toml` configurations for automated co
 ## License & Author
 Engineered with precision by **Mohammed Minhaj Mahmood** ([@MuhammadMinhaj229](https://github.com/MuhammadMinhaj229)).  
 Copyright © 2026 Alif Growth Media. All rights reserved.
+
+## Engineering Workflow
+
+See [docs/ENGINEERING_WORKFLOW.md](docs/ENGINEERING_WORKFLOW.md) for the verified change process, Playwright and GitHub Actions checks, optional v0 workflow, conditional Supabase testing guidance, and Netlify preview/release gates.
