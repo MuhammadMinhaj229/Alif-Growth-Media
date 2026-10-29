@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useScroll, useSpring } from "motion/react";
 
 import alifMark from "@/assets/alif-symbol.png";
-import { navLinks } from "@/content/site";
 import { useCoarsePointer } from "@/components/motion/primitives";
 
-const links = navLinks;
+const links = [
+  { to: "/work", label: "Work" },
+  { to: "/services", label: "Services" },
+  { to: "/about", label: "Studio" },
+  { to: "/blog", label: "Insights" },
+] as const;
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -19,8 +23,6 @@ export function Header() {
     damping: 28,
     restDelta: 0.001,
   });
-  // On touch devices the spring runs a frame loop through every fling; read
-  // the raw scroll value instead so scrolling stays on the compositor.
   const progress = coarse ? scrollYProgress : smoothProgress;
 
   useEffect(() => {
@@ -28,10 +30,10 @@ export function Header() {
     const onScroll = () => {
       if (ticking) return;
       ticking = true;
-      requestAnimationFrame(() => {
-        setScrolled((prev) => {
-          const next = window.scrollY > 12;
-          return prev === next ? prev : next;
+      window.requestAnimationFrame(() => {
+        setScrolled((previous) => {
+          const next = window.scrollY > 20;
+          return previous === next ? previous : next;
         });
         ticking = false;
       });
@@ -41,13 +43,17 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll while the mobile drawer is open.
   useEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
+    const previousOverflow = document.body.style.overflow;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
     document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
     return () => {
-      document.body.style.overflow = prev;
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
     };
   }, [open]);
 
@@ -55,113 +61,95 @@ export function Header() {
     <motion.header
       initial={false}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow] duration-300 ${
-        scrolled || open
-          ? "border-b border-border bg-background/85 shadow-[var(--shadow-soft)] backdrop-blur-xl supports-[backdrop-filter]:bg-background/70"
-          : "border-b border-transparent"
-      }`}
+      transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
+      className={scrolled || open ? "site-header is-active" : "site-header"}
     >
-      <div
-        className={`mx-auto grid w-full max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-5 transition-[padding] duration-300 sm:px-6 md:flex md:justify-between md:gap-4 lg:px-8 ${
-          scrolled ? "py-2.5" : "py-3.5 md:py-4"
-        }`}
-      >
-        <Link to="/" className="group flex min-w-0 items-center gap-2.5 sm:gap-3">
-          <img
-            src={alifMark}
-            alt="Alif Growth Media logo"
-            width={44}
-            height={44}
-            fetchPriority="high"
-            decoding="async"
-            className={`w-auto shrink-0 object-contain transition-[height,transform] duration-300 group-hover:scale-105 ${
-              scrolled ? "h-8 sm:h-9" : "h-9 sm:h-11"
-            }`}
-          />
-          <span className="truncate font-display text-sm font-semibold tracking-tight sm:text-base">
-            <span className="text-gold">Alif</span> <span className="text-primary">Growth Media</span>
+      <div className="site-header__inner">
+        <Link to="/" className="site-brand" aria-label="Alif Growth Media — home" onClick={() => setOpen(false)}>
+          <span className="site-brand__mark">
+            <img src={alifMark} alt="" width={40} height={40} decoding="async" />
+          </span>
+          <span className="site-brand__wordmark">
+            <strong>ALIF</strong>
+            <small>Growth Media</small>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
-          {links.map((l) => (
+        <nav className="site-nav" aria-label="Primary navigation">
+          {links.map((link) => (
             <Link
-              key={l.to}
-              to={l.to}
-              activeOptions={{ exact: l.to === "/" }}
-              activeProps={{ className: "text-foreground" }}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              key={link.to}
+              to={link.to}
+              activeProps={{ className: "site-nav__link is-active" }}
+              className="site-nav__link"
             >
-              {l.label}
+              {link.label}
             </Link>
           ))}
-          <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
-            <Link
-              to="/contact"
-              className="inline-block rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-soft)]"
-            >
-              Free Audit
-            </Link>
-          </motion.div>
         </nav>
+
+        <Link to="/contact" className="site-header__cta">
+          Let's talk <ArrowUpRight aria-hidden="true" size={16} />
+        </Link>
 
         <button
           type="button"
-          className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-border bg-card text-foreground transition-colors hover:bg-muted md:hidden"
+          className="site-header__menu-button"
           aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
+          aria-controls="mobile-site-menu"
+          onClick={() => setOpen((current) => !current)}
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? <X aria-hidden="true" size={21} /> : <Menu aria-hidden="true" size={21} />}
         </button>
       </div>
 
       <motion.div
-        aria-hidden
+        aria-hidden="true"
         style={{ scaleX: progress }}
-        className="h-[2px] origin-left bg-[var(--gradient-gold)]"
+        className="site-header__progress"
       />
 
       <AnimatePresence>
         {open && (
-          <motion.nav
-            key="mobile-nav"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-t border-border bg-background/97 px-5 backdrop-blur-xl sm:px-6 md:hidden"
-            aria-label="Mobile"
+          <motion.div
+            id="mobile-site-menu"
+            key="mobile-site-menu"
+            className="site-menu"
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="flex max-h-[70vh] flex-col gap-1 overflow-y-auto py-3">
-              {links.map((l, i) => (
-                <motion.div
-                  key={l.to}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 + i * 0.04, duration: 0.3 }}
-                >
-                  <Link
-                    to={l.to}
-                    onClick={() => setOpen(false)}
-                    activeOptions={{ exact: l.to === "/" }}
-                    activeProps={{ className: "bg-muted text-foreground" }}
-                    className="block rounded-lg px-3 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                  >
-                    {l.label}
-                  </Link>
-                </motion.div>
-              ))}
-              <Link
-                to="/contact"
-                onClick={() => setOpen(false)}
-                className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground"
-              >
-                Free Audit
-              </Link>
+            <div className="site-menu__top">
+              <span className="eyebrow">Navigation / 01</span>
+              <button type="button" className="site-menu__close" onClick={() => setOpen(false)} aria-label="Close navigation menu">
+                <X aria-hidden="true" size={21} />
+              </button>
             </div>
-          </motion.nav>
+            <nav className="site-menu__links" aria-label="Mobile primary">
+              {links.map((link, i) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setOpen(false)}
+                  activeProps={{ className: "site-menu__link is-active" }}
+                  className="site-menu__link"
+                >
+                  <span className="site-menu__number">0{i + 1}</span>
+                  <span>{link.label}</span>
+                  <ArrowUpRight aria-hidden="true" size={20} />
+                </Link>
+              ))}
+            </nav>
+            <div className="site-menu__bottom">
+              <p>Have a good problem to solve?</p>
+              <Link to="/contact" onClick={() => setOpen(false)} className="button-primary">
+                Start a project <ArrowUpRight aria-hidden="true" size={17} />
+              </Link>
+              <a href="mailto:hello.alifstudio@gmail.com" className="site-menu__email">hello.alifstudio@gmail.com</a>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </motion.header>

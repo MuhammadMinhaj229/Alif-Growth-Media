@@ -15,12 +15,25 @@ test("key public routes load with a visible page heading", async ({ page }) => {
   for (const route of ["/services", "/work", "/about", "/contact"]) {
     const response = await page.goto(route);
 
-    expect(response?.status(), `${route} should return HTTP 200`).toBe(200);
+    expect(response?.status(), route + " should return HTTP 200").toBe(200);
     await expect(
       page.getByRole("heading", { level: 1 }).first(),
-      `${route} should show a primary heading`,
+      route + " should show a primary heading",
     ).toBeVisible();
   }
+});
+
+test("mobile navigation opens, follows a route, and closes", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+
+  const openButton = page.getByRole("button", { name: "Open navigation menu" });
+  await openButton.click();
+  const mobileNav = page.getByRole("navigation", { name: "Mobile primary" });
+  await expect(mobileNav).toBeVisible();
+  await mobileNav.getByRole("link", { name: "Work" }).click();
+  await expect(page).toHaveURL(/\/work$/);
+  await expect(page.getByRole("button", { name: "Open navigation menu" })).toHaveAttribute("aria-expanded", "false");
 });
 
 test("homepage fits a narrow mobile viewport without horizontal overflow", async ({ page }) => {

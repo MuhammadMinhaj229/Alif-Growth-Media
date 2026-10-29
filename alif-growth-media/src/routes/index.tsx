@@ -1,30 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Quote, MessageCircle, Sparkles } from "lucide-react";
-import { InteractiveDemoSuite } from "@/components/site/InteractiveDemoSuite";
-import { IndustryMaturityShowcase } from "@/components/site/IndustryMaturityShowcase";
-import { HybridTechTeamBanner } from "@/components/site/HybridTechTeamBanner";
-import { motion } from "motion/react";
+import { ArrowDown, ArrowRight, ArrowUpRight, Check, MoveUpRight } from "lucide-react";
 
-import heroArt from "@/assets/hero-abstract.jpg";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { CtaBand } from "@/components/site/CtaBand";
-import { Section, Card } from "@/components/site/Sections";
-import {
-  AnimatedStat,
-  HoverLift,
-  MaskedLines,
-  Parallax,
-  Reveal,
-  ScrollDrift,
-  Stagger,
-  StaggerItem,
-  EASE,
-} from "@/components/motion/primitives";
-import { collaborations, company, pillars, results, services, steps } from "@/content/site";
+import { Parallax, Reveal, Stagger, StaggerItem } from "@/components/motion/primitives";
+import heroArt from "@/assets/hero-abstract.jpg";
+import { collaborations, company, services, steps } from "@/content/site";
 
-const title = "Alif Growth Media | Custom Business Software, Visual CMS & Operating Systems";
+const title = "Alif Growth Media | Digital Systems for Ambitious Businesses";
 const description =
-  "Alif Growth Media acts as the dedicated IT team and fractional CTO for local businesses—engineering scalable websites with live visual editors, custom WhatsApp CRMs, digital invoicing, and unified mobile BI dashboards.";
+  "Alif Growth Media designs and engineers business websites, visual content systems, WhatsApp CRM workflows, invoicing tools and mobile dashboards for businesses in Telangana and the Gulf.";
 const canonical = "https://alif-growth.netlify.app/";
 
 export const Route = createFileRoute("/")({
@@ -68,338 +53,278 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const headline = "Your Dedicated Hybrid Tech Team. We Build & Manage".split(" ");
   return (
     <SiteLayout>
-      {/* Hero */}
-      <section className="relative overflow-hidden px-4 pb-14 pt-24 sm:px-6 sm:pt-32 md:pb-24 md:pt-36 lg:px-8">
-        <div className="mx-auto grid w-full max-w-6xl items-center gap-8 md:grid-cols-[1.05fr_0.95fr] md:gap-12">
-          <div>
-            <motion.span
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: EASE }}
-              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/85 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-primary sm:px-4 sm:text-xs"
-            >
-              <Sparkles className="w-3 h-3 text-gold" /> Dedicated Hybrid Tech Partner · Telangana & Gulf
-            </motion.span>
-            <h1 className="mt-4 text-[clamp(2rem,7vw,3.6rem)] font-semibold leading-[1.06] sm:mt-6">
-              {headline.map((word, i) => (
-                <motion.span
-                  key={`${word}-${i}`}
-                  className="inline-block"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.55, delay: 0.08 + i * 0.05, ease: EASE }}
-                >
-                  {word}&nbsp;
-                </motion.span>
-              ))}
-              <motion.span
-                className="gradient-gold-text inline-block"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.65, delay: 0.08 + headline.length * 0.05, ease: EASE }}
-              >
-                Your Complete Online Systems.
-              </motion.span>
-            </h1>
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.45, ease: EASE }}
-              className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:mt-5 sm:text-base"
-            >
-              Need a hybrid technical team who builds custom online systems and manages everything daily? We engineer fast websites with visual editors, custom WhatsApp CRMs, 1-tap digital billing, and mobile dashboards—so you never hire full-time developers or touch code.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.55, ease: EASE }}
-              className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center"
-            >
-              <HoverLift className="w-full sm:w-auto">
-                <Link
-                  to="/contact"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-xs sm:text-sm font-semibold text-primary-foreground shadow-[var(--shadow-lift)] sm:w-auto"
-                >
-                  Free Tech Architecture Audit <ArrowRight className="h-4 w-4" />
-                </Link>
-              </HoverLift>
-              <HoverLift className="w-full sm:w-auto">
-                <Link
-                  to="/services"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border bg-card/85 px-6 py-3 text-xs sm:text-sm font-semibold transition-colors hover:bg-muted sm:w-auto"
-                >
-                  Explore Software Suite
-                </Link>
-              </HoverLift>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted-foreground"
-            >
-              {["We Build & Manage Everything", "Live Visual Admin (No Code)", "Custom WhatsApp CRM", "Mobile Cash & BI Tracker", "₹0 Upfront Risk"].map((p) => (
-                <span key={p} className="inline-flex items-center gap-1.5">
-                  <Check className="h-3.5 w-3.5 shrink-0 text-primary" /> {p}
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="site-container">
+          <div className="home-hero__topline">
+            <p className="eyebrow"><span className="eyebrow__dot" /> Independent digital systems studio</p>
+            <p className="home-hero__location">Warangal, Telangana <span>·</span> India &amp; GCC</p>
+          </div>
+
+          <div className="home-hero__body">
+            <div className="home-hero__copy">
+              <Reveal>
+                <h1 id="home-title" className="home-hero__title">
+                  Built for the way
+                  <br />
+                  you <em>actually work.</em>
+                </h1>
+              </Reveal>
+              <Reveal delay={0.12}>
+                <p className="home-hero__intro">
+                  We design and engineer the digital systems behind growing businesses — from a memorable online
+                  presence to the tools that keep customers, teams and daily operations moving.
+                </p>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <div className="home-hero__actions">
+                  <Link to="/contact" className="button-primary">
+                    Free Tech Architecture Audit <ArrowUpRight aria-hidden="true" size={17} />
+                  </Link>
+                  <Link to="/work" className="text-link">
+                    Explore our work <ArrowRight aria-hidden="true" size={16} />
+                  </Link>
+                </div>
+              </Reveal>
+              <div className="home-hero__footnote">
+                <span className="home-hero__footnote-mark"><ArrowDown aria-hidden="true" size={15} /></span>
+                <span>From the first impression<br />to everyday operations.</span>
+              </div>
+            </div>
+
+            <Reveal delay={0.16} className="home-hero__visual-wrap">
+              <Parallax distance={10} scale={[1, 1.025]} className="home-hero__visual">
+                <img
+                  src={heroArt}
+                  alt="Abstract visual artwork representing a connected digital business system"
+                  width={1200}
+                  height={1200}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="home-hero__image"
+                />
+                <div className="home-hero__visual-shade" />
+                <div className="home-hero__visual-top">
+                  <span>ALIF / SYSTEMS STUDIO</span>
+                  <span>001 — 004</span>
+                </div>
+                <div className="home-hero__visual-bottom">
+                  <p>Technology should feel<br /><em>like an advantage.</em></p>
+                  <Link to="/services" aria-label="Explore Alif Growth Media services" className="home-hero__visual-link">
+                    <MoveUpRight aria-hidden="true" size={20} />
+                  </Link>
+                </div>
+              </Parallax>
+              <div className="home-hero__visual-note">
+                <span className="eyebrow">Built around you</span>
+                <p>Clearer journeys. Simpler operations. Systems you can own.</p>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="home-hero__services" aria-label="What we do">
+            <span>Digital strategy</span>
+            <span>Web engineering</span>
+            <span>Business automation</span>
+            <span>Operational intelligence</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="partner-strip" aria-label="Selected client partners">
+        <div className="site-container partner-strip__inner">
+          <p className="eyebrow">Made with businesses<br />built to move forward</p>
+          <div className="partner-strip__logos">
+            {collaborations.map((client) => (
+              <a key={client.name} href={client.href} target="_blank" rel="noopener noreferrer" aria-label={"Visit " + client.name}>
+                <img src={client.logo} alt={client.name} loading="lazy" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="studio-intro section-pad" aria-labelledby="studio-intro-title">
+        <div className="site-container studio-intro__grid">
+          <div className="studio-intro__label">
+            <p className="eyebrow">The Alif approach / 01</p>
+            <span className="studio-intro__vertical">DESIGNED WITH INTENT</span>
+          </div>
+          <div className="studio-intro__content">
+            <Reveal>
+              <h2 id="studio-intro-title" className="editorial-heading">
+                Good design earns attention.
+                <br />
+                <em>Good systems earn trust.</em>
+              </h2>
+            </Reveal>
+            <div className="studio-intro__bottom">
+              <p>
+                Your website should do more than look polished. It should help people understand your offer, make the
+                next step obvious, and connect smoothly with how your business runs behind the scenes.
+              </p>
+              <Link to="/about" className="text-link">
+                Get to know the studio <ArrowUpRight aria-hidden="true" size={16} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="selected-work section-pad" id="selected-work" aria-labelledby="selected-work-title">
+        <div className="site-container">
+          <div className="section-heading section-heading--split">
+            <div>
+              <p className="eyebrow">Selected work / 02</p>
+              <h2 id="selected-work-title" className="editorial-heading">
+                Different businesses.
+                <br />
+                <em>Thoughtful digital foundations.</em>
+              </h2>
+            </div>
+            <div className="section-heading__aside">
+              <p>Each engagement starts with the real problem, then builds the right digital experience around it.</p>
+              <Link to="/work" className="text-link">View all work <ArrowRight aria-hidden="true" size={16} /></Link>
+            </div>
+          </div>
+
+          <Stagger className="project-grid">
+            {collaborations.map((client, i) => (
+              <StaggerItem key={client.name} lift className="project-grid__item">
+                <a href={client.href} target="_blank" rel="noopener noreferrer" className="project-card">
+                  <div className={"project-card__stage project-card__stage--" + (i + 1)}>
+                    <span className="project-card__index">0{i + 1} / 03</span>
+                    <div className="project-card__artwork">
+                      <img src={client.logo} alt={client.name + " brand visual"} loading="lazy" />
+                    </div>
+                    <span className="project-card__open">Open project <ArrowUpRight aria-hidden="true" size={16} /></span>
+                  </div>
+                  <div className="project-card__details">
+                    <div>
+                      <p className="eyebrow">{client.industry}</p>
+                      <h3>{client.name}</h3>
+                    </div>
+                    <ArrowUpRight className="project-card__arrow" aria-hidden="true" size={21} />
+                  </div>
+                  <p className="project-card__scope">{client.scope}</p>
+                </a>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      <section className="services-overview section-pad" aria-labelledby="services-overview-title">
+        <div className="site-container">
+          <div className="section-heading section-heading--split">
+            <div>
+              <p className="eyebrow">What we make / 03</p>
+              <h2 id="services-overview-title" className="editorial-heading">
+                Built around your
+                <br />
+                <em>real-world workflow.</em>
+              </h2>
+            </div>
+            <div className="section-heading__aside">
+              <p>One accountable technical partner for the website, customer journey and operating tools your business needs.</p>
+              <Link to="/services" className="text-link">Explore services <ArrowRight aria-hidden="true" size={16} /></Link>
+            </div>
+          </div>
+
+          <div className="service-list">
+            {services.map((service, i) => (
+              <Link key={service.slug} to="/services" hash={service.slug} className="service-row">
+                <span className="service-row__number">0{i + 1}</span>
+                <div className="service-row__main">
+                  <h3>{service.t}</h3>
+                  <p>{service.b}</p>
+                </div>
+                <span className="service-row__action" aria-label={"Explore " + service.t}>
+                  <ArrowUpRight aria-hidden="true" size={19} />
                 </span>
-              ))}
-            </motion.div>
+              </Link>
+            ))}
           </div>
-
-          <motion.div
-            className="relative mb-8 md:mb-0"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
-          >
-            <Parallax distance={22} scale={[1, 1.06]}>
-              <img
-                src={heroArt}
-                alt="Alif Growth Media hybrid technical team systems architecture"
-                width={1200}
-                height={1200}
-                fetchPriority="high"
-                decoding="async"
-                className="aspect-square w-full rounded-[calc(var(--radius)+8px)] object-cover shadow-[var(--shadow-lift)]"
-              />
-            </Parallax>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6, ease: EASE }}
-              className="surface-card absolute -bottom-8 left-2 right-2 p-3.5 sm:-bottom-6 sm:left-4 sm:right-4 sm:p-4 md:-left-6 md:right-8 rounded-xl sm:rounded-2xl border border-border shadow-lg"
-            >
-              <h2 className="text-[0.68rem] sm:text-xs font-semibold uppercase tracking-[0.16em] text-primary">
-                What Changes For Your Business
-              </h2>
-              <ul className="mt-2 space-y-1.5 text-xs text-muted-foreground">
-                <li className="flex items-start gap-1.5">
-                  <Check className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
-                  <span>Update your website text, photos & prices instantly without coding.</span>
-                </li>
-                <li className="flex items-start gap-1.5">
-                  <Check className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
-                  <span>Capture & auto-reply to incoming customer WhatsApp leads in seconds.</span>
-                </li>
-                <li className="flex items-start gap-1.5">
-                  <Check className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
-                  <span>Track daily cash collections, web visits & inventory from one mobile screen.</span>
-                </li>
-              </ul>
-            </motion.div>
-          </motion.div>
         </div>
       </section>
 
-      <div className="h-6 md:h-10" />
-
-      {/* Partner Strip */}
-      <section className="border-y border-border bg-secondary/30 px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 md:flex-row md:justify-between">
-          <Reveal>
-            <p className="text-center text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground sm:text-xs md:text-left">
-              Trusted software & platform partners in Telangana & Gulf
+      <section className="studio-manifesto section-pad" aria-labelledby="manifesto-title">
+        <div className="site-container studio-manifesto__grid">
+          <div>
+            <p className="eyebrow">A partner, not a hand-off / 04</p>
+            <h2 id="manifesto-title" className="editorial-heading">
+              Clarity in the brief.
+              <br />
+              <em>Care in the build.</em>
+              <br />
+              Confidence after launch.
+            </h2>
+          </div>
+          <div className="studio-manifesto__right">
+            <p className="studio-manifesto__lead">
+              We bring strategy, design and engineering into one conversation — so the finished product feels
+              coherent to your customers and practical for the people who use it every day.
             </p>
-          </Reveal>
-          <ScrollDrift distance={28}>
-            <Stagger className="grid w-full grid-cols-3 items-end gap-3 sm:gap-8 md:flex md:flex-wrap md:gap-12">
-              {collaborations.map((c, i) => (
-                <StaggerItem key={c.name} lift className="min-w-0">
-                  <div className="flex min-w-0 flex-col items-center gap-1.5">
-                    <img
-                      src={c.logo}
-                      alt={`${c.name} logo`}
-                      loading="lazy"
-                      className={`w-auto max-w-full object-contain opacity-90 transition-opacity hover:opacity-100 ${
-                        i === 1
-                          ? "h-12 sm:h-20 md:h-24 md:max-w-[240px]"
-                          : "h-10 sm:h-16 md:max-w-[200px]"
-                      }`}
-                    />
-                    {i < 2 && (
-                      <span className="w-full truncate text-center text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-muted-foreground sm:text-xs">
-                        {c.name}
-                      </span>
-                    )}
-                  </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
-          </ScrollDrift>
+            <ul className="manifesto-list">
+              <li><Check aria-hidden="true" size={16} /> Clear scope before work begins</li>
+              <li><Check aria-hidden="true" size={16} /> Responsive, accessible interfaces</li>
+              <li><Check aria-hidden="true" size={16} /> Ownership and handover planned in</li>
+              <li><Check aria-hidden="true" size={16} /> Support that continues beyond launch</li>
+            </ul>
+            <Link to="/about" className="text-link">How we work <ArrowRight aria-hidden="true" size={16} /></Link>
+          </div>
         </div>
       </section>
 
-      {/* Hybrid Tech Team Value & Architecture */}
-      <HybridTechTeamBanner />
-
-      {/* Organisations We Help Grow & Mature */}
-      <IndustryMaturityShowcase />
-
-      {/* Interactive Prototypes Simulation Sandbox */}
-      <section className="border-t border-border bg-background px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
-        <div className="mx-auto w-full max-w-6xl">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-8">
-            <Reveal className="max-w-2xl">
-              <span className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-gold sm:text-xs">
-                Live Interactive Sandbox
-              </span>
-              <h2 className="mt-2 text-balance text-[clamp(1.6rem,4.8vw,2.4rem)] font-bold leading-[1.15]">
-                Test our working software before you customize
-              </h2>
-              <p className="mt-2 text-pretty text-xs sm:text-sm leading-relaxed text-muted-foreground">
-                We engineer production-grade systems. Test drive our working tools right here in your browser, then customize them for your brand with ₹0 upfront fee.
-              </p>
-            </Reveal>
-            <Reveal>
-              <Link
-                to="/work"
-                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/90 hover:bg-muted px-4 py-2 text-xs font-semibold text-foreground transition-colors whitespace-nowrap"
-              >
-                View all prototypes & platforms <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </Reveal>
+      <section className="process-section section-pad" aria-labelledby="process-title">
+        <div className="site-container">
+          <div className="section-heading section-heading--split">
+            <div>
+              <p className="eyebrow">A simple process / 05</p>
+              <h2 id="process-title" className="editorial-heading">Good work is a <em>shared process.</em></h2>
+            </div>
+            <p className="section-heading__description">A clear path from the first conversation to a system your team can use with confidence.</p>
           </div>
-
-          <InteractiveDemoSuite />
+          <Stagger className="process-grid">
+            {steps.map((step, i) => (
+              <StaggerItem key={step.t} className="process-step">
+                <span className="process-step__number">0{i + 1}</span>
+                <h3>{step.t}</h3>
+                <p>{step.b}</p>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
 
-      {/* Technology Framework */}
-      <div className="gradient-deep text-primary-foreground">
-        <section className="px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
-          <div className="mx-auto w-full max-w-6xl">
-            <Reveal className="max-w-2xl">
-              <span className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-gold sm:text-xs">
-                Technology Framework
-              </span>
-              <h2 className="mt-2 text-balance text-[clamp(1.6rem,4.8vw,2.4rem)] font-semibold leading-[1.15]">
-                Three pillars that turn your business into an automated machine
-              </h2>
-              <p className="mt-3 text-pretty text-xs sm:text-sm leading-relaxed text-primary-foreground/75">
-                We engineer scalable web architecture, custom WhatsApp CRMs, and mobile executive dashboards so you run smoothly without technical stress.
-              </p>
-            </Reveal>
-            <Stagger className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-              {pillars.map((p) => (
-                <StaggerItem key={p.k} lift>
-                  <div className="h-full rounded-2xl border border-primary-foreground/15 bg-primary-foreground/5 p-5 sm:p-6 transition-colors hover:border-gold/40">
-                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{p.k}</span>
-                    <h3 className="mt-2.5 text-lg font-semibold">{p.t}</h3>
-                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-primary-foreground/75">{p.b}</p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
+      <section className="prototype-promo" aria-labelledby="prototype-promo-title">
+        <div className="site-container prototype-promo__inner">
+          <div className="prototype-promo__visual" aria-hidden="true">
+            <div className="prototype-promo__window">
+              <span className="prototype-promo__window-top"><i /><i /><i /> <b>ALIF / WORKING PROTOTYPE</b></span>
+              <div className="prototype-promo__window-body">
+                <span className="prototype-promo__mini-label">A better way to work</span>
+                <span className="prototype-promo__line prototype-promo__line--long" />
+                <span className="prototype-promo__line prototype-promo__line--short" />
+                <div className="prototype-promo__tiles"><i /><i /><i /></div>
+                <span className="prototype-promo__window-button">Open dashboard ↗</span>
+              </div>
+            </div>
           </div>
-        </section>
-      </div>
-
-      {/* Software Suite */}
-      <Section
-        eyebrow="Software Suite"
-        title="Custom software built for your business identity"
-        intro="Everything is integrated into one operating ecosystem, powered by Alif Growth Media so you never juggle separate freelance developers or incompatible apps."
-        tone="muted"
-      >
-        <Stagger className="mt-8 grid gap-4 sm:gap-5 md:grid-cols-2">
-          {services.map((s) => (
-            <StaggerItem key={s.slug}>
-              <Link to="/services" hash={s.slug} className="block h-full">
-                <Card title={s.t} body={s.b} />
-              </Link>
-            </StaggerItem>
-          ))}
-        </Stagger>
-        <Reveal>
-          <Link
-            to="/services"
-            className="mt-6 inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-primary transition-all hover:gap-3"
-          >
-            See what each service includes <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Reveal>
-      </Section>
-
-      {/* How it works */}
-      <Section eyebrow="How it works" title="Simple 4-step roadmap with zero technical complexity">
-        <Stagger className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
-          {steps.map((s, i) => (
-            <StaggerItem key={s.t}>
-              <Card index={`0${i + 1}`} title={s.t} body={s.b} />
-            </StaggerItem>
-          ))}
-        </Stagger>
-      </Section>
-
-      {/* Results */}
-      <div className="bg-background/75">
-        <section className="px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
-          <div className="mx-auto w-full max-w-6xl">
-            <Reveal className="max-w-2xl">
-              <span className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-primary sm:text-xs">
-                Real Business Results
-              </span>
-              <h2 className="mt-2 text-balance text-[clamp(1.6rem,4.8vw,2.4rem)] font-semibold leading-[1.15]">
-                Outcomes local owners can measure
-              </h2>
-              <p className="mt-3 text-pretty text-xs sm:text-sm leading-relaxed text-muted-foreground">
-                When systems are simple and automated, your business becomes easier to run and consistently profitable.
-              </p>
-            </Reveal>
-            <Stagger className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-              {results.map((r) => (
-                <StaggerItem key={r.t} lift>
-                  <div className="surface-card h-full p-5 sm:p-6 rounded-2xl border border-border">
-                    <AnimatedStat value={r.s} className="font-display text-2xl sm:text-3xl font-semibold text-primary" />
-                    <h3 className="mt-2 text-sm sm:text-base font-semibold">{r.t}</h3>
-                    <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">{r.b}</p>
-                  </div>
-                </StaggerItem>
-              ))}
-            </Stagger>
-            <Reveal>
-              <Link
-                to="/work"
-                className="mt-6 inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-primary transition-all hover:gap-3"
-              >
-                See our brand partners <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Reveal>
+          <div className="prototype-promo__copy">
+            <p className="eyebrow">Explore the possibilities / 06</p>
+            <h2 id="prototype-promo-title" className="editorial-heading">See the system.<br /><em>Try it for yourself.</em></h2>
+            <p>Explore working business tools — from visual content editing to customer pipelines and daily tracking — before we shape one around your operation.</p>
+            <Link to="/work" className="button-primary">Explore live prototypes <ArrowUpRight aria-hidden="true" size={17} /></Link>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
-      {/* Testimonial */}
-      <Section eyebrow="Partner Feedback" title="What business owners say" tone="deep">
-        <Reveal className="mx-auto mt-8 max-w-3xl text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.6 }}
-            transition={{ duration: 0.5, ease: EASE }}
-          >
-            <Quote className="mx-auto h-8 w-8 sm:h-10 sm:w-10 text-gold" />
-          </motion.div>
-          <blockquote className="mt-5 text-pretty text-[clamp(1rem,3.2vw,1.4rem)] font-medium leading-relaxed">
-            <MaskedLines
-              delay={0.15}
-              lines={[
-                `"Alif Growth Media helped us turn scattered enquiries`,
-                `into a clear system. Our customers now get faster`,
-                `replies and we can finally see what is working."`,
-              ]}
-            />
-          </blockquote>
-          <footer className="mt-5 text-xs sm:text-sm text-primary-foreground/75">
-            — Partner at a Telangana retail showroom
-          </footer>
-        </Reveal>
-      </Section>
-
-      <CtaBand />
+      <CtaBand
+        title="Let's build something that works harder for your business."
+        body="Start with a complimentary architecture audit. We'll map the friction, explain the trade-offs, and give you a clear next step before you commit."
+      />
     </SiteLayout>
   );
 }
