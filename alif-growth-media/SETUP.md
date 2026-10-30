@@ -37,6 +37,7 @@ Important:
 
 Click **Publish** in the Lovable editor — no configuration needed; the SSR build
 is hosted automatically.
+
 ## Brand logos
 
 Raw logo files (transparent PNG) are included twice for convenience:

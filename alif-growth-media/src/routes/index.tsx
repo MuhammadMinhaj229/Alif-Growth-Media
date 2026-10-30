@@ -53,7 +53,15 @@ export const Route = createFileRoute("/")({
           description,
           email: "hello.alifstudio@gmail.com",
           telephone: company.phoneE164,
-          areaServed: ["Telangana, India", "UAE", "Saudi Arabia", "Qatar", "Kuwait", "Bahrain", "Oman"],
+          areaServed: [
+            "Telangana, India",
+            "UAE",
+            "Saudi Arabia",
+            "Qatar",
+            "Kuwait",
+            "Bahrain",
+            "Oman",
+          ],
           address: {
             "@type": "PostalAddress",
             addressLocality: "Warangal",
@@ -81,7 +89,8 @@ function Index() {
               transition={{ duration: 0.5, ease: EASE }}
               className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/85 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-primary sm:px-4 sm:text-xs"
             >
-              <Sparkles className="w-3 h-3 text-gold" /> Dedicated Hybrid Tech Partner · Telangana & Gulf
+              <Sparkles className="w-3 h-3 text-gold" /> Dedicated Hybrid Tech Partner · Telangana &
+              Gulf
             </motion.span>
             <h1 className="mt-4 text-[clamp(2rem,7vw,3.6rem)] font-semibold leading-[1.06] sm:mt-6">
               {headline.map((word, i) => (
@@ -110,7 +119,10 @@ function Index() {
               transition={{ duration: 0.55, delay: 0.45, ease: EASE }}
               className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:mt-5 sm:text-base"
             >
-              Need a hybrid technical team who builds custom online systems and manages everything daily? We engineer fast websites with visual editors, custom WhatsApp CRMs, 1-tap digital billing, and mobile dashboards—so you never hire full-time developers or touch code.
+              Need a hybrid technical team who builds custom online systems and manages everything
+              daily? We engineer fast websites with visual editors, custom WhatsApp CRMs, 1-tap
+              digital billing, and mobile dashboards—so you never hire full-time developers or touch
+              code.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 14 }}
@@ -141,7 +153,13 @@ function Index() {
               transition={{ duration: 0.6, delay: 0.7 }}
               className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-xs text-muted-foreground"
             >
-              {["We Build & Manage Everything", "Live Visual Admin (No Code)", "Custom WhatsApp CRM", "Mobile Cash & BI Tracker", "₹0 Upfront Risk"].map((p) => (
+              {[
+                "We Build & Manage Everything",
+                "Live Visual Admin (No Code)",
+                "Custom WhatsApp CRM",
+                "Mobile Cash & BI Tracker",
+                "₹0 Upfront Risk",
+              ].map((p) => (
                 <span key={p} className="inline-flex items-center gap-1.5">
                   <Check className="h-3.5 w-3.5 shrink-0 text-primary" /> {p}
                 </span>
@@ -186,7 +204,9 @@ function Index() {
                 </li>
                 <li className="flex items-start gap-1.5">
                   <Check className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
-                  <span>Track daily cash collections, web visits & inventory from one mobile screen.</span>
+                  <span>
+                    Track daily cash collections, web visits & inventory from one mobile screen.
+                  </span>
                 </li>
               </ul>
             </motion.div>
@@ -250,7 +270,8 @@ function Index() {
                 Test our working software before you customize
               </h2>
               <p className="mt-2 text-pretty text-xs sm:text-sm leading-relaxed text-muted-foreground">
-                We engineer production-grade systems. Test drive our working tools right here in your browser, then customize them for your brand with ₹0 upfront fee.
+                We engineer production-grade systems. Test drive our working tools right here in
+                your browser, then customize them for your brand with ₹0 upfront fee.
               </p>
             </Reveal>
             <Reveal>
@@ -279,16 +300,21 @@ function Index() {
                 Three pillars that turn your business into an automated machine
               </h2>
               <p className="mt-3 text-pretty text-xs sm:text-sm leading-relaxed text-primary-foreground/75">
-                We engineer scalable web architecture, custom WhatsApp CRMs, and mobile executive dashboards so you run smoothly without technical stress.
+                We engineer scalable web architecture, custom WhatsApp CRMs, and mobile executive
+                dashboards so you run smoothly without technical stress.
               </p>
             </Reveal>
             <Stagger className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
               {pillars.map((p) => (
                 <StaggerItem key={p.k} lift>
                   <div className="h-full rounded-2xl border border-primary-foreground/15 bg-primary-foreground/5 p-5 sm:p-6 transition-colors hover:border-gold/40">
-                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{p.k}</span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+                      {p.k}
+                    </span>
                     <h3 className="mt-2.5 text-lg font-semibold">{p.t}</h3>
-                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-primary-foreground/75">{p.b}</p>
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-primary-foreground/75">
+                      {p.b}
+                    </p>
                   </div>
                 </StaggerItem>
               ))}
@@ -346,16 +372,22 @@ function Index() {
                 Outcomes local owners can measure
               </h2>
               <p className="mt-3 text-pretty text-xs sm:text-sm leading-relaxed text-muted-foreground">
-                When systems are simple and automated, your business becomes easier to run and consistently profitable.
+                When systems are simple and automated, your business becomes easier to run and
+                consistently profitable.
               </p>
             </Reveal>
             <Stagger className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
               {results.map((r) => (
                 <StaggerItem key={r.t} lift>
                   <div className="surface-card h-full p-5 sm:p-6 rounded-2xl border border-border">
-                    <AnimatedStat value={r.s} className="font-display text-2xl sm:text-3xl font-semibold text-primary" />
+                    <AnimatedStat
+                      value={r.s}
+                      className="font-display text-2xl sm:text-3xl font-semibold text-primary"
+                    />
                     <h3 className="mt-2 text-sm sm:text-base font-semibold">{r.t}</h3>
-                    <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">{r.b}</p>
+                    <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                      {r.b}
+                    </p>
                   </div>
                 </StaggerItem>
               ))}
